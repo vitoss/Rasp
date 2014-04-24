@@ -1,9 +1,14 @@
 # How to start server?
+
+#get all dependencies
+npm install
+
+#run server
 node server.js 
 
 # What's the contract?
 
-* POST /api/temperature [{"value": 22}] - returns latest record of temperature
+* GET /api/temperature [{"value": 22}] - returns latest record of temperature
 
 [QUOTE]
 GET /api/temperature HTTP/1.1
@@ -15,7 +20,7 @@ Hash: 1e1a642f16892ef7ca87b2307adafc09
 [/QUOTE]
 
 
-* POST /api/temperature/{number} [{value: 23, timestamp: 2132132132}]  - return record of given number (counting backwards)
+* GET /api/temperature/{number} [{value: 23, timestamp: 2132132132}]  - return record of given number (counting backwards)
 
 [QUOTE]
 GET /api/temperature HTTP/1.1
