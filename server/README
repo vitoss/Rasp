@@ -1,0 +1,33 @@
+# How to start server?
+node server.js 
+
+# What's the contract?
+
+* POST /api/temperature [{"value": 22}] - returns latest record of temperature
+
+[QUOTE]
+GET /api/temperature HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Cache-Control: no-cache
+Salt: 1235
+Hash: 1e1a642f16892ef7ca87b2307adafc09
+[/QUOTE]
+
+
+* POST /api/temperature/{number} [{value: 23, timestamp: 2132132132}]  - return record of given number (counting backwards)
+
+[QUOTE]
+GET /api/temperature HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Cache-Control: no-cache
+Salt: 1235
+Hash: 1e1a642f16892ef7ca87b2307adafc09
+[/QUOTE]
+
+# How to calculate hash?
+
+MD5(CRYPTO_KEY + SALT + CRYPTO_KEY);
+
+Salt should be different every time.
