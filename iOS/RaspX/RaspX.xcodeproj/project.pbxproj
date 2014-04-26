@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5FF7C9B0190C37F500347A5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9AF190C37F500347A5D /* UIKit.framework */; };
+		5FF7C9B2190C37F500347A5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9B1190C37F500347A5D /* Foundation.framework */; };
+		5FF7C9B4190C37F500347A5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9B3190C37F500347A5D /* CoreGraphics.framework */; };
+		5FF7C9BA190C37F500347A5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7C9B8190C37F500347A5D /* InfoPlist.strings */; };
+		5FF7C9BC190C37F500347A5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C9BB190C37F500347A5D /* main.m */; };
+		5FF7C9C0190C37F500347A5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C9BF190C37F500347A5D /* AppDelegate.m */; };
+		5FF7C9C3190C37F500347A5D /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7C9C1190C37F500347A5D /* MainStoryboard_iPhone.storyboard */; };
+		5FF7C9C6190C37F500347A5D /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7C9C4190C37F500347A5D /* MainStoryboard_iPad.storyboard */; };
+		5FF7C9C9190C37F500347A5D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C9C8190C37F500347A5D /* FirstViewController.m */; };
+		5FF7C9CB190C37F500347A5D /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7C9CA190C37F500347A5D /* first.png */; };
+		5FF7C9CD190C37F500347A5D /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7C9CC190C37F500347A5D /* first@2x.png */; };
+		5FF7C9D0190C37F500347A5D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C9CF190C37F500347A5D /* SecondViewController.m */; };
+		5FF7C9D2190C37F500347A5D /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7C9D1190C37F500347A5D /* second.png */; };
+		5FF7C9D4190C37F500347A5D /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7C9D3190C37F500347A5D /* second@2x.png */; };
+		5FF7C9DC190C37F500347A5D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9DB190C37F500347A5D /* SenTestingKit.framework */; };
+		5FF7C9DD190C37F500347A5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9AF190C37F500347A5D /* UIKit.framework */; };
+		5FF7C9DE190C37F500347A5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9B1190C37F500347A5D /* Foundation.framework */; };
+		5FF7C9E6190C37F500347A5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7C9E4190C37F500347A5D /* InfoPlist.strings */; };
+		5FF7C9E9190C37F500347A5D /* RaspXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C9E8190C37F500347A5D /* RaspXTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5FF7C9DF190C37F500347A5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FF7C9A2190C37F400347A5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FF7C9AA190C37F500347A5D;
+			remoteInfo = RaspX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5FF7C9AB190C37F500347A5D /* RaspX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF7C9AF190C37F500347A5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5FF7C9B1190C37F500347A5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5FF7C9B3190C37F500347A5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5FF7C9B7190C37F500347A5D /* RaspX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RaspX-Info.plist"; sourceTree = "<group>"; };
+		5FF7C9B9190C37F500347A5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5FF7C9BB190C37F500347A5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5FF7C9BD190C37F500347A5D /* RaspX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RaspX-Prefix.pch"; sourceTree = "<group>"; };
+		5FF7C9BE190C37F500347A5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5FF7C9BF190C37F500347A5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5FF7C9C2190C37F500347A5D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		5FF7C9C5190C37F500347A5D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		5FF7C9C7190C37F500347A5D /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		5FF7C9C8190C37F500347A5D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		5FF7C9CA190C37F500347A5D /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		5FF7C9CC190C37F500347A5D /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		5FF7C9CE190C37F500347A5D /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		5FF7C9CF190C37F500347A5D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		5FF7C9D1190C37F500347A5D /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		5FF7C9D3190C37F500347A5D /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		5FF7C9DA190C37F500347A5D /* RaspXTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaspXTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF7C9DB190C37F500347A5D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5FF7C9E3190C37F500347A5D /* RaspXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RaspXTests-Info.plist"; sourceTree = "<group>"; };
+		5FF7C9E5190C37F500347A5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5FF7C9E7190C37F500347A5D /* RaspXTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaspXTests.h; sourceTree = "<group>"; };
+		5FF7C9E8190C37F500347A5D /* RaspXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaspXTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5FF7C9A8190C37F500347A5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FF7C9B0190C37F500347A5D /* UIKit.framework in Frameworks */,
+				5FF7C9B2190C37F500347A5D /* Foundation.framework in Frameworks */,
+				5FF7C9B4190C37F500347A5D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FF7C9D6190C37F500347A5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FF7C9DC190C37F500347A5D /* SenTestingKit.framework in Frameworks */,
+				5FF7C9DD190C37F500347A5D /* UIKit.framework in Frameworks */,
+				5FF7C9DE190C37F500347A5D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5FF7C9A0190C37F400347A5D = {
+			isa = PBXGroup;
+			children = (
+				5FF7C9B5190C37F500347A5D /* RaspX */,
+				5FF7C9E1190C37F500347A5D /* RaspXTests */,
+				5FF7C9AE190C37F500347A5D /* Frameworks */,
+				5FF7C9AC190C37F500347A5D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5FF7C9AC190C37F500347A5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FF7C9AB190C37F500347A5D /* RaspX.app */,
+				5FF7C9DA190C37F500347A5D /* RaspXTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FF7C9AE190C37F500347A5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FF7C9AF190C37F500347A5D /* UIKit.framework */,
+				5FF7C9B1190C37F500347A5D /* Foundation.framework */,
+				5FF7C9B3190C37F500347A5D /* CoreGraphics.framework */,
+				5FF7C9DB190C37F500347A5D /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5FF7C9B5190C37F500347A5D /* RaspX */ = {
+			isa = PBXGroup;
+			children = (
+				5FF7C9BE190C37F500347A5D /* AppDelegate.h */,
+				5FF7C9BF190C37F500347A5D /* AppDelegate.m */,
+				5FF7C9C1190C37F500347A5D /* MainStoryboard_iPhone.storyboard */,
+				5FF7C9C4190C37F500347A5D /* MainStoryboard_iPad.storyboard */,
+				5FF7C9C7190C37F500347A5D /* FirstViewController.h */,
+				5FF7C9C8190C37F500347A5D /* FirstViewController.m */,
+				5FF7C9CA190C37F500347A5D /* first.png */,
+				5FF7C9CC190C37F500347A5D /* first@2x.png */,
+				5FF7C9CE190C37F500347A5D /* SecondViewController.h */,
+				5FF7C9CF190C37F500347A5D /* SecondViewController.m */,
+				5FF7C9D1190C37F500347A5D /* second.png */,
+				5FF7C9D3190C37F500347A5D /* second@2x.png */,
+				5FF7C9B6190C37F500347A5D /* Supporting Files */,
+			);
+			path = RaspX;
+			sourceTree = "<group>";
+		};
+		5FF7C9B6190C37F500347A5D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FF7C9B7190C37F500347A5D /* RaspX-Info.plist */,
+				5FF7C9B8190C37F500347A5D /* InfoPlist.strings */,
+				5FF7C9BB190C37F500347A5D /* main.m */,
+				5FF7C9BD190C37F500347A5D /* RaspX-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FF7C9E1190C37F500347A5D /* RaspXTests */ = {
+			isa = PBXGroup;
+			children = (
+				5FF7C9E7190C37F500347A5D /* RaspXTests.h */,
+				5FF7C9E8190C37F500347A5D /* RaspXTests.m */,
+				5FF7C9E2190C37F500347A5D /* Supporting Files */,
+			);
+			path = RaspXTests;
+			sourceTree = "<group>";
+		};
+		5FF7C9E2190C37F500347A5D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FF7C9E3190C37F500347A5D /* RaspXTests-Info.plist */,
+				5FF7C9E4190C37F500347A5D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5FF7C9AA190C37F500347A5D /* RaspX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FF7C9EC190C37F500347A5D /* Build configuration list for PBXNativeTarget "RaspX" */;
+			buildPhases = (
+				5FF7C9A7190C37F500347A5D /* Sources */,
+				5FF7C9A8190C37F500347A5D /* Frameworks */,
+				5FF7C9A9190C37F500347A5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RaspX;
+			productName = RaspX;
+			productReference = 5FF7C9AB190C37F500347A5D /* RaspX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5FF7C9D9190C37F500347A5D /* RaspXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FF7C9EF190C37F500347A5D /* Build configuration list for PBXNativeTarget "RaspXTests" */;
+			buildPhases = (
+				5FF7C9D5190C37F500347A5D /* Sources */,
+				5FF7C9D6190C37F500347A5D /* Frameworks */,
+				5FF7C9D7190C37F500347A5D /* Resources */,
+				5FF7C9D8190C37F500347A5D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FF7C9E0190C37F500347A5D /* PBXTargetDependency */,
+			);
+			name = RaspXTests;
+			productName = RaspXTests;
+			productReference = 5FF7C9DA190C37F500347A5D /* RaspXTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5FF7C9A2190C37F400347A5D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 5FF7C9A5190C37F400347A5D /* Build configuration list for PBXProject "RaspX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5FF7C9A0190C37F400347A5D;
+			productRefGroup = 5FF7C9AC190C37F500347A5D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5FF7C9AA190C37F500347A5D /* RaspX */,
+				5FF7C9D9190C37F500347A5D /* RaspXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5FF7C9A9190C37F500347A5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FF7C9BA190C37F500347A5D /* InfoPlist.strings in Resources */,
+				5FF7C9C3190C37F500347A5D /* MainStoryboard_iPhone.storyboard in Resources */,
+				5FF7C9C6190C37F500347A5D /* MainStoryboard_iPad.storyboard in Resources */,
+				5FF7C9CB190C37F500347A5D /* first.png in Resources */,
+				5FF7C9CD190C37F500347A5D /* first@2x.png in Resources */,
+				5FF7C9D2190C37F500347A5D /* second.png in Resources */,
+				5FF7C9D4190C37F500347A5D /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FF7C9D7190C37F500347A5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FF7C9E6190C37F500347A5D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5FF7C9D8190C37F500347A5D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5FF7C9A7190C37F500347A5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FF7C9BC190C37F500347A5D /* main.m in Sources */,
+				5FF7C9C0190C37F500347A5D /* AppDelegate.m in Sources */,
+				5FF7C9C9190C37F500347A5D /* FirstViewController.m in Sources */,
+				5FF7C9D0190C37F500347A5D /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FF7C9D5190C37F500347A5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FF7C9E9190C37F500347A5D /* RaspXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5FF7C9E0190C37F500347A5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FF7C9AA190C37F500347A5D /* RaspX */;
+			targetProxy = 5FF7C9DF190C37F500347A5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5FF7C9B8190C37F500347A5D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FF7C9B9190C37F500347A5D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5FF7C9C1190C37F500347A5D /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FF7C9C2190C37F500347A5D /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		5FF7C9C4190C37F500347A5D /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FF7C9C5190C37F500347A5D /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		5FF7C9E4190C37F500347A5D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FF7C9E5190C37F500347A5D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5FF7C9EA190C37F500347A5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5FF7C9EB190C37F500347A5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5FF7C9ED190C37F500347A5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RaspX/RaspX-Prefix.pch";
+				INFOPLIST_FILE = "RaspX/RaspX-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5FF7C9EE190C37F500347A5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RaspX/RaspX-Prefix.pch";
+				INFOPLIST_FILE = "RaspX/RaspX-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5FF7C9F0190C37F500347A5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RaspX.app/RaspX";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RaspX/RaspX-Prefix.pch";
+				INFOPLIST_FILE = "RaspXTests/RaspXTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5FF7C9F1190C37F500347A5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RaspX.app/RaspX";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RaspX/RaspX-Prefix.pch";
+				INFOPLIST_FILE = "RaspXTests/RaspXTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5FF7C9A5190C37F400347A5D /* Build configuration list for PBXProject "RaspX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FF7C9EA190C37F500347A5D /* Debug */,
+				5FF7C9EB190C37F500347A5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FF7C9EC190C37F500347A5D /* Build configuration list for PBXNativeTarget "RaspX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FF7C9ED190C37F500347A5D /* Debug */,
+				5FF7C9EE190C37F500347A5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5FF7C9EF190C37F500347A5D /* Build configuration list for PBXNativeTarget "RaspXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FF7C9F0190C37F500347A5D /* Debug */,
+				5FF7C9F1190C37F500347A5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5FF7C9A2190C37F400347A5D /* Project object */;
+}
