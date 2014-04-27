@@ -8,7 +8,7 @@ node server.js
 
 # What's the contract?
 
-* GET /api/temperature [{"value": 22}] - returns latest record of temperature
+* GET /api/temperature # {"value": 22.0} - returns latest record of temperature
 
 [QUOTE]
 GET /api/temperature HTTP/1.1
@@ -20,10 +20,21 @@ Hash: 1e1a642f16892ef7ca87b2307adafc09
 [/QUOTE]
 
 
-* GET /api/temperature/{number} [{value: 23, timestamp: 2132132132}]  - return record of given number (counting backwards)
+* GET /api/temperature/{number} # {value: 23.0, timestamp: 2132132132}  - return record of given number (counting backwards)
 
 [QUOTE]
 GET /api/temperature HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Cache-Control: no-cache
+Salt: 1235
+Hash: 1e1a642f16892ef7ca87b2307adafc09
+[/QUOTE]
+ 
+* GET /api/temperature/{timestamp_from}/{timestamp_to} # [{value: 12.3, timestamp:12312321321},{value: 12.3, timestamp:12312321321}, ...]
+
+[QUOTE]
+GET /api/temperature/1398584749362/1398584759362 HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
 Cache-Control: no-cache
