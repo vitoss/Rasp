@@ -4,7 +4,7 @@
 npm install
 
 #run server
-node server.js 
+node server.js
 
 # What's the contract?
 
@@ -16,7 +16,7 @@ Host: localhost:8080
 Content-Type: application/json
 Cache-Control: no-cache
 Salt: 1235
-Hash: 1e1a642f16892ef7ca87b2307adafc09
+Hash: 57b2e61b964e5ccdfd34d687db049885
 [/QUOTE]
 
 
@@ -28,9 +28,9 @@ Host: localhost:8080
 Content-Type: application/json
 Cache-Control: no-cache
 Salt: 1235
-Hash: 1e1a642f16892ef7ca87b2307adafc09
+Hash: 57b2e61b964e5ccdfd34d687db049885
 [/QUOTE]
- 
+
 * GET /api/temperature/{timestamp_from}/{timestamp_to} # [{value: 12.3, timestamp:12312321321},{value: 12.3, timestamp:12312321321}, ...]
 
 [QUOTE]
@@ -39,7 +39,7 @@ Host: localhost:8080
 Content-Type: application/json
 Cache-Control: no-cache
 Salt: 1235
-Hash: 1e1a642f16892ef7ca87b2307adafc09
+Hash: 57b2e61b964e5ccdfd34d687db049885
 [/QUOTE]
 
 # How to calculate hash?
