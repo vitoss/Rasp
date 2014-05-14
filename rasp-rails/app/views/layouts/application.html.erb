@@ -13,7 +13,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body class="<%= "#{controller_name} #{action_name} bg#{1+rand(4)}" %>">
     <div class="row">
       <div id="main-container" class="small-12 columns">
         <%= yield %>

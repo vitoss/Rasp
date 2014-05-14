@@ -3,9 +3,9 @@ Rasp
 
 
 ## Overview
-Simple project aiming to integrate Raspberry Pi with client application written in Java, ObjC and Ruby.
+Simple project aiming to integrate Raspberry Pi with client applications written in Java, ObjC and Ruby.
 Raspberry Pi is responsible for gathering and storing local physical data like temperature, moisture, etc.
-Raspberry Pi expose HTTP endpoint serving gathered data (both current and historical).
+Raspberry Pi exposes HTTP endpoint serving gathered data (both current and historical).
 
 ## Client apps
 
