@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Rasp App</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Rasp</string>
+    <string name="action_settings">Internet Settings</string>
     <string name="action_search">Search</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="title_activity_display_message">My Message</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="connect_to_rasp">CONNECT TO RASP</string>
+	<string name="rasp_address">ADDRESS</string>
+	<string name="rasp_address_default">http://uj-rasp.no-ip.org</string>
+	<string name="rasp_connect_button">CONNECT</string>
+	<string name="rasp_connect_status">STATUS</string>
+	<string name="rasp_connect_status_result">FAIL</string>
+	<string name="rasp_button_goto_menu">Menu</string>
 </resources>

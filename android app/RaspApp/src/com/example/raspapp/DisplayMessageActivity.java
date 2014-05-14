@@ -21,18 +21,18 @@ public class DisplayMessageActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_display_message);
 		
 		Intent intent = getIntent();
-		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+		String message = "";//intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 		
 		 // Create the text view
-	    TextView textView = new TextView(this);
-	    textView.setTextSize(40);
-	    textView.setText(message);
+	    //TextView textView = new TextView(this);
+	    //textView.setTextSize(40);
+	    //textView.setText(message);
 	    
-		/*if (savedInstanceState == null) {
+		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
-		}*/
-	    setContentView(textView);
+		}
+	    //setContentView(textView);
 	}
 
 	@Override
