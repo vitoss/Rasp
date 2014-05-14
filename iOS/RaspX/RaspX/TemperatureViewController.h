@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SecondViewController.h
 //  RaspX
 //
 //  Created by vito on 4/26/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface TemperatureViewController : UIViewController
+
+@property (nonatomic, assign) BOOL isConnected;
 
 @end

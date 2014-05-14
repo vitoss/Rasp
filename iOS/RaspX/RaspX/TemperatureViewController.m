@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 __MyCompanyName__. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "TemperatureViewController.h"
 
-@implementation SecondViewController
+@implementation TemperatureViewController
+@synthesize isConnected;
 
 - (void)didReceiveMemoryWarning
 {
