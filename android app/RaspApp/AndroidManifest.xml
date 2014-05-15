@@ -5,12 +5,12 @@
     android:versionName="1.0" >
 
     <uses-sdk
-       android:minSdkVersion="11"
+        android:minSdkVersion="11"
         android:targetSdkVersion="19" />
-    
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-		<uses-permission android:name="android.permission.INTERNET" />
-	
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -26,12 +26,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.raspapp.DisplayMessageActivity"
-            android:label="@string/title_activity_display_message"
+            android:name="com.example.raspapp.MenuActivity"
+            android:label="@string/title_activity_menu"
             android:parentActivityName="com.example.raspapp.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.raspapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.raspapp.FromToActivity"
+            android:label="@string/title_activity_from_to"
+            android:parentActivityName="com.example.raspapp.MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.raspapp.MenuActivity" />
         </activity>
     </application>
 

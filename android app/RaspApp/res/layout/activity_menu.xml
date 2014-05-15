@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.raspapp.MenuActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="54dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/menu_text" />
+
+    <Button
+        android:id="@+id/rasp_current_temperature"
+        android:layout_width="fill_parent"
+        android:layout_height="54dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/rasp_temperature_current" />
+
+    <Button
+        android:id="@+id/rasp_temperature_with_timestamp_button"
+        android:layout_width="fill_parent"
+        android:layout_height="54dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/rasp_temperature_with_timestamp" />
+
+    <Button
+        android:id="@+id/rasp_temperature_from_to"
+        android:layout_width="fill_parent"
+        android:layout_height="54dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/rasp_temperature_from_to"
+        android:onClick="raspTemperatureFromToOnClick" />
+
+</LinearLayout>
