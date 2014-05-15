@@ -6,9 +6,15 @@
 //  Copyright (c) 2014 __MyCompanyName__. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "TemperatureViewController.h"
+#import "SessionState.h"
+#import "TemperatureFetcher.h"
 
-@implementation SecondViewController
+@implementation TemperatureViewController {
+    TemperatureFetcher *fetcher;
+}
+
+@synthesize nonConnectedView, currentTemperatureLabel, refreshButton;
 
 - (void)didReceiveMemoryWarning
 {
@@ -34,6 +40,23 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    SessionState *state = [SessionState sharedInstance];
+    
+    //toggle view depending on connectivity state
+    if([state connected]) {
+        [nonConnectedView setHidden:YES];
+        
+        //make sure fetcher is good
+        if(fetcher == nil || ![[fetcher serverName] isEqualToString:[SessionState sharedInstance]]) {
+            fetcher = [[TemperatureFetcher alloc] initWithServer:[state serverName]];
+        }
+        
+        //refresh current temperatur
+        [self refresh:nil];
+    } else {
+        [nonConnectedView setHidden:NO];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -59,6 +82,16 @@
     } else {
         return YES;
     }
+}
+
+-(IBAction)goBack:(id)sender {
+    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
+}
+
+-(IBAction)refresh:(id)sender {
+    [fetcher getCurrent:^(double temperature) {
+        [currentTemperatureLabel setText:[NSString stringWithFormat:@"%.02f", temperature]];
+    }];
 }
 
 @end

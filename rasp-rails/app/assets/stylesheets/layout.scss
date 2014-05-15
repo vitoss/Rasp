@@ -1,0 +1,35 @@
+@import "compass/css3";
+
+* {
+  outline: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  // outline: 1px solid red;
+}
+
+body {
+  width: 100%;
+  background: url("bg1.jpg") no-repeat center top;
+  @include background-size(cover);
+
+  &.bg2 {
+    background: url("bg2.jpg") no-repeat center top;
+    @include background-size(cover);
+  }
+
+  &.bg3 {
+    background: url("bg3.jpg") no-repeat center top;
+    @include background-size(cover);
+  }
+
+  &.bg4 {
+    background: url("bg4.jpg") no-repeat center top;
+    @include background-size(cover);
+  }
+
+  #main-container {
+    @include background-with-css2-fallback(#ffffff);
+    margin-top: 5em;
+  }
+}
