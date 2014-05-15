@@ -9,9 +9,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ConnectionViewController.h"
 #import "CommonUIUtility.h"
+#import "SessionState.h"
 
 @implementation ConnectionViewController
-@synthesize serverNameControl, logControl, connectButton, isConnected;
+@synthesize serverNameControl, logControl, connectButton;
 
 - (void)didReceiveMemoryWarning
 {
@@ -67,9 +68,7 @@
 
 -(IBAction)toggleConnection:(id)sender {
     
-    if(self.isConnected) {
-        self.isConnected = false;
-        
+    if([[SessionState sharedInstance] connected]) {
         [self connectionDropped];
     } else {
         [connectButton setEnabled:false];
@@ -88,13 +87,11 @@
                                                                           options:0
                                                                             error:NULL];
                  
-                 self.isConnected = true;
                  [self connectionSuccesful];
                  
                  //self.greetingId.text = [[greeting objectForKey:@"id"] stringValue];
                  //self.greetingContent.text = [greeting objectForKey:@"content"];
              } else {
-                 self.isConnected = false;
                  [self connectionFailed];
              }
          }];
@@ -106,16 +103,21 @@
 }
          
 -(void) connectionSuccesful {
+    [[SessionState sharedInstance] setConnected:YES];
+    [[SessionState sharedInstance] setServerName:[serverNameControl text]];
+    
     [self appendMessage:@"Connection to server success."];
 
     [self setButtonTitle:@"Disconnect" andColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]];
 }
 
 -(void) connectionFailed {
+    [[SessionState sharedInstance] setConnected:NO];
     [self appendMessage:@"Connection to server failed."];
 }
 
 -(void) connectionDropped {
+    [[SessionState sharedInstance] setConnected:NO];
     [self setButtonTitle:@"Connect" andColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
     
     [self appendMessage:@"Disconnected."];

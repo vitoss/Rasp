@@ -14,7 +14,6 @@
 @property (nonatomic, assign) IBOutlet UITextField *serverNameControl;
 @property (nonatomic, assign) IBOutlet UITextView *logControl;
 @property (nonatomic, assign) IBOutlet UIButton *connectButton;
-@property (nonatomic, assign) BOOL isConnected;
 
 - (IBAction)toggleConnection:(id)sender;
 

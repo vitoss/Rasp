@@ -9,6 +9,7 @@
 #import "SessionState.h"
 
 @implementation SessionState
+@synthesize connected, serverName;
 
 static SessionState *sharedInstance = nil;
 

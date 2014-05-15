@@ -10,4 +10,8 @@
 
 @interface SessionState : NSObject
     + (id)sharedInstance;
+
+@property (nonatomic, assign) BOOL connected;
+@property (nonatomic, retain) NSString *serverName;
+
 @end

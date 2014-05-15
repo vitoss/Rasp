@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F827E6319212F6F00D8D0BA /* CommonUIUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F827E6219212F6F00D8D0BA /* CommonUIUtility.m */; };
 		5F827E671921319300D8D0BA /* SessionState.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F827E661921319300D8D0BA /* SessionState.m */; };
+		5F827E6A1924C3F000D8D0BA /* TemperatureFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F827E691924C3F000D8D0BA /* TemperatureFetcher.m */; };
 		5F935273192128CF005CC7D0 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F935272192128CF005CC7D0 /* RootTabBarController.m */; };
 		5FF7C9B0190C37F500347A5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9AF190C37F500347A5D /* UIKit.framework */; };
 		5FF7C9B2190C37F500347A5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9B1190C37F500347A5D /* Foundation.framework */; };
@@ -46,6 +47,8 @@
 		5F827E6219212F6F00D8D0BA /* CommonUIUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUIUtility.m; sourceTree = "<group>"; };
 		5F827E651921319300D8D0BA /* SessionState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionState.h; sourceTree = "<group>"; };
 		5F827E661921319300D8D0BA /* SessionState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionState.m; sourceTree = "<group>"; };
+		5F827E681924C3F000D8D0BA /* TemperatureFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureFetcher.h; sourceTree = "<group>"; };
+		5F827E691924C3F000D8D0BA /* TemperatureFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureFetcher.m; sourceTree = "<group>"; };
 		5F935271192128CF005CC7D0 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
 		5F935272192128CF005CC7D0 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarController.m; sourceTree = "<group>"; };
 		5FF7C9AB190C37F500347A5D /* RaspX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +155,8 @@
 				5F827E6219212F6F00D8D0BA /* CommonUIUtility.m */,
 				5F827E651921319300D8D0BA /* SessionState.h */,
 				5F827E661921319300D8D0BA /* SessionState.m */,
+				5F827E681924C3F000D8D0BA /* TemperatureFetcher.h */,
+				5F827E691924C3F000D8D0BA /* TemperatureFetcher.m */,
 			);
 			path = RaspX;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				5F935273192128CF005CC7D0 /* RootTabBarController.m in Sources */,
 				5F827E6319212F6F00D8D0BA /* CommonUIUtility.m in Sources */,
 				5F827E671921319300D8D0BA /* SessionState.m in Sources */,
+				5F827E6A1924C3F000D8D0BA /* TemperatureFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
