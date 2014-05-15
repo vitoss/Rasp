@@ -21,7 +21,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://uj-rasp.no-ip.org/" borderStyle="roundedRect" placeholder="Address" minimumFontSize="17" id="pW6-Ce-eI8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="uj-rasp.no-ip.org" borderStyle="roundedRect" placeholder="Address" minimumFontSize="17" id="pW6-Ce-eI8">
                                 <rect key="frame" x="26" y="71" width="269" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q9o-wu-hCI">
-                                <rect key="frame" x="124" y="297" width="72" height="37"/>
+                                <rect key="frame" x="107" y="297" width="107" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Refresh">
@@ -94,7 +94,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Label" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="zHk-CQ-aLp">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="zHk-CQ-aLp">
                                 <rect key="frame" x="76" y="133" width="168" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="63"/>

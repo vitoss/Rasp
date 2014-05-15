@@ -73,7 +73,7 @@
     } else {
         [connectButton setEnabled:false];
         
-        NSURL *url = [NSURL URLWithString:[serverNameControl text]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/", [serverNameControl text]]];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [NSURLConnection sendAsynchronousRequest:request
                                            queue:[NSOperationQueue mainQueue]
@@ -83,14 +83,11 @@
              [connectButton setEnabled:true];
              if (data.length > 0 && connectionError == nil)
              {
-                 NSDictionary *greeting = [NSJSONSerialization JSONObjectWithData:data
+                 NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data
                                                                           options:0
                                                                             error:NULL];
                  
                  [self connectionSuccesful];
-                 
-                 //self.greetingId.text = [[greeting objectForKey:@"id"] stringValue];
-                 //self.greetingContent.text = [greeting objectForKey:@"content"];
              } else {
                  [self connectionFailed];
              }
@@ -109,11 +106,14 @@
     [self appendMessage:@"Connection to server success."];
 
     [self setButtonTitle:@"Disconnect" andColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]];
+    
+    [serverNameControl setEnabled:NO];
 }
 
 -(void) connectionFailed {
     [[SessionState sharedInstance] setConnected:NO];
     [self appendMessage:@"Connection to server failed."];
+    [serverNameControl setEnabled:YES];
 }
 
 -(void) connectionDropped {
@@ -121,6 +121,7 @@
     [self setButtonTitle:@"Connect" andColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0]];
     
     [self appendMessage:@"Disconnected."];
+    [serverNameControl setEnabled:YES];
 }
 
 -(void) setButtonTitle:(NSString *)title andColor:(UIColor *)color {

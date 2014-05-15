@@ -89,8 +89,14 @@
 }
 
 -(IBAction)refresh:(id)sender {
+    [refreshButton setEnabled:NO];
+    [refreshButton setTitle:@"Loading..." forState:UIControlStateNormal];
+    
     [fetcher getCurrent:^(double temperature) {
         [currentTemperatureLabel setText:[NSString stringWithFormat:@"%.02f", temperature]];
+        
+        [refreshButton setEnabled:YES];
+        [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
     }];
 }
 
