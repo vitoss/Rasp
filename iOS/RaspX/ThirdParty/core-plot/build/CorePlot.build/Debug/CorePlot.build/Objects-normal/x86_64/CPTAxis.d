@@ -1,0 +1,33 @@
+dependencies: \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTAxis.m \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTAxis.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTDefinitions.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTLayer.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTResponder.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/MacOnly/CPTPlatformSpecificDefines.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTTextStyle.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTAxisLabel.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTAxisLabelGroup.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTAxisSet.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTAxisTitle.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTColor.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTExceptions.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTFill.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTGradient.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTGridLineGroup.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTGridLines.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTImage.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTLimitBand.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTLineCap.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTLineStyle.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTMutablePlotRange.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTPlotRange.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTPlotArea.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTAnnotationHostLayer.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTGraph.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTBorderedLayer.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTPlotSpace.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTShadow.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTTextLayer.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/CPTUtilities.h \
+  /Users/vito/Projects/Rasp/iOS/RaspX/ThirdParty/core-plot/framework/Source/NSCoderExtensions.h
