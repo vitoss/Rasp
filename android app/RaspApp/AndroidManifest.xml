@@ -5,8 +5,11 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -21,6 +24,22 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.raspapp.MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:parentActivityName="com.example.raspapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.raspapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.raspapp.FromToActivity"
+            android:label="@string/title_activity_from_to"
+            android:parentActivityName="com.example.raspapp.MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.raspapp.MenuActivity" />
         </activity>
     </application>
 
