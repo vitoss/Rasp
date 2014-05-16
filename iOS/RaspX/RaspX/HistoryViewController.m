@@ -13,7 +13,7 @@
     CPTXYGraph *graph;
 }
 
-@synthesize hostView, toolbar;
+@synthesize hostView, toolbar, settingsButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -125,6 +125,8 @@
     self.hostView = [(CPTGraphHostingView *) [CPTGraphHostingView alloc] initWithFrame:parentRect];
     self.hostView.allowPinchScaling = NO;
     [self.view addSubview:self.hostView];
+    
+    [self.view bringSubviewToFront:settingsButton];
 }
 
 -(void)setupGraph
@@ -136,7 +138,7 @@
     hostView.hostedGraph = graph;
     
     // Graph title
-    graph.title = @"This is the Graph Title";
+    graph.title = @"Temperature history";
     CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
     textStyle.color                = [CPTColor grayColor];
     textStyle.fontName             = @"Helvetica-Bold";

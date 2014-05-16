@@ -15,6 +15,7 @@
 		5F935273192128CF005CC7D0 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F935272192128CF005CC7D0 /* RootTabBarController.m */; };
 		5F9E92E1192645D6008DE3DB /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9E92DE192645C2008DE3DB /* libCorePlot-CocoaTouch.a */; };
 		5F9E92E419264626008DE3DB /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E92E319264626008DE3DB /* HistoryViewController.m */; };
+		5F9E931319265F80008DE3DB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E931219265F80008DE3DB /* SettingsViewController.m */; };
 		5FF7C9B0190C37F500347A5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9AF190C37F500347A5D /* UIKit.framework */; };
 		5FF7C9B2190C37F500347A5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9B1190C37F500347A5D /* Foundation.framework */; };
 		5FF7C9B4190C37F500347A5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9B3190C37F500347A5D /* CoreGraphics.framework */; };
@@ -74,6 +75,8 @@
 		5F9E92D4192645C2008DE3DB /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "ThirdParty/core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		5F9E92E219264626008DE3DB /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		5F9E92E319264626008DE3DB /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		5F9E931119265F80008DE3DB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5F9E931219265F80008DE3DB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5FF7C9AB190C37F500347A5D /* RaspX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF7C9AF190C37F500347A5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FF7C9B1190C37F500347A5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -204,6 +207,8 @@
 				5F827E691924C3F000D8D0BA /* TemperatureFetcher.m */,
 				5F9E92E219264626008DE3DB /* HistoryViewController.h */,
 				5F9E92E319264626008DE3DB /* HistoryViewController.m */,
+				5F9E931119265F80008DE3DB /* SettingsViewController.h */,
+				5F9E931219265F80008DE3DB /* SettingsViewController.m */,
 			);
 			path = RaspX;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				5F827E671921319300D8D0BA /* SessionState.m in Sources */,
 				5F827E6A1924C3F000D8D0BA /* TemperatureFetcher.m in Sources */,
 				5F9E92E419264626008DE3DB /* HistoryViewController.m in Sources */,
+				5F9E931319265F80008DE3DB /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) CPTGraphHostingView *hostView;
 @property (nonatomic, strong) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, strong) IBOutlet UIButton *settingsButton;
 
 -(void)initPlot;
 -(void)configureHost;
