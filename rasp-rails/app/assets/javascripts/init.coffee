@@ -11,7 +11,8 @@ class Init
   getTemperature: ->
 
     $.ajax
-      url: "http://uj-rasp.no-ip.org/api/temperature"
+      url: "http://77.255.78.53:8080/api/temperature"
+      # url: "http://uj-rasp.no-ip.org/api/temperature"
       # url: "http://localhost:8080/api/temperature"
       type: "GET"
       dataType: "json"
@@ -21,7 +22,8 @@ class Init
         $('#temperature-value').html(data.value)
         return
     $.ajax
-      url: "http://uj-rasp.no-ip.org/api/temperature/1"
+      url: "http://77.255.78.53:8080/api/temperature/1"
+      # url: "http://uj-rasp.no-ip.org/api/temperature/1"
       # url: "http://localhost:8080/api/temperature/1"
       type: "GET"
       dataType: "json"
