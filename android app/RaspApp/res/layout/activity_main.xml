@@ -1,8 +1,61 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.raspapp.MainActivity"
-    tools:ignore="MergeRootFrame" />
+    android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="54dp"
+        android:gravity="left|center"
+        android:text="@string/rasp_connect_to" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="54dp"
+        android:gravity="center"
+        android:text="@string/rasp_address" />
+
+    <EditText
+        android:id="@+id/rasp_address"
+        android:layout_width="fill_parent"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:inputType="textUri"
+        android:text="@string/rasp_address_default" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/rasp_connect_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rasp_connect_button"
+        android:onClick="raspConnectButtonOnClick" />
+
+    <TextView
+        android:id="@+id/rasp_connect_status"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/rasp_connect_status" />
+
+    <TextView
+        android:id="@+id/rasp_connect_status_result"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/rasp_connect_status_result" />
+
+    <Button
+        android:id="@+id/rasp_button_goto_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="@string/rasp_button_goto_menu"
+        android:onClick="raspGotoMenuButtonClick" />
+
+</LinearLayout>

@@ -10,7 +10,12 @@
 		5F827E6319212F6F00D8D0BA /* CommonUIUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F827E6219212F6F00D8D0BA /* CommonUIUtility.m */; };
 		5F827E671921319300D8D0BA /* SessionState.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F827E661921319300D8D0BA /* SessionState.m */; };
 		5F827E6A1924C3F000D8D0BA /* TemperatureFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F827E691924C3F000D8D0BA /* TemperatureFetcher.m */; };
+		5F827E851926229600D8D0BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F827E841926229600D8D0BA /* QuartzCore.framework */; };
+		5F827E87192622A000D8D0BA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F827E86192622A000D8D0BA /* Accelerate.framework */; };
 		5F935273192128CF005CC7D0 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F935272192128CF005CC7D0 /* RootTabBarController.m */; };
+		5F9E92E1192645D6008DE3DB /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9E92DE192645C2008DE3DB /* libCorePlot-CocoaTouch.a */; };
+		5F9E92E419264626008DE3DB /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E92E319264626008DE3DB /* HistoryViewController.m */; };
+		5F9E931319265F80008DE3DB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E931219265F80008DE3DB /* SettingsViewController.m */; };
 		5FF7C9B0190C37F500347A5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9AF190C37F500347A5D /* UIKit.framework */; };
 		5FF7C9B2190C37F500347A5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9B1190C37F500347A5D /* Foundation.framework */; };
 		5FF7C9B4190C37F500347A5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7C9B3190C37F500347A5D /* CoreGraphics.framework */; };
@@ -33,6 +38,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5F9E92DD192645C2008DE3DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F9E92D4192645C2008DE3DB /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+		5F9E92DF192645D0008DE3DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F9E92D4192645C2008DE3DB /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
 		5FF7C9DF190C37F500347A5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FF7C9A2190C37F400347A5D /* Project object */;
@@ -49,8 +68,15 @@
 		5F827E661921319300D8D0BA /* SessionState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionState.m; sourceTree = "<group>"; };
 		5F827E681924C3F000D8D0BA /* TemperatureFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureFetcher.h; sourceTree = "<group>"; };
 		5F827E691924C3F000D8D0BA /* TemperatureFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureFetcher.m; sourceTree = "<group>"; };
+		5F827E841926229600D8D0BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5F827E86192622A000D8D0BA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		5F935271192128CF005CC7D0 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
 		5F935272192128CF005CC7D0 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarController.m; sourceTree = "<group>"; };
+		5F9E92D4192645C2008DE3DB /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "ThirdParty/core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
+		5F9E92E219264626008DE3DB /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		5F9E92E319264626008DE3DB /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		5F9E931119265F80008DE3DB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5F9E931219265F80008DE3DB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5FF7C9AB190C37F500347A5D /* RaspX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaspX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF7C9AF190C37F500347A5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FF7C9B1190C37F500347A5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,6 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9E92E1192645D6008DE3DB /* libCorePlot-CocoaTouch.a in Frameworks */,
+				5F827E87192622A000D8D0BA /* Accelerate.framework in Frameworks */,
+				5F827E851926229600D8D0BA /* QuartzCore.framework in Frameworks */,
 				5FF7C9B0190C37F500347A5D /* UIKit.framework in Frameworks */,
 				5FF7C9B2190C37F500347A5D /* Foundation.framework in Frameworks */,
 				5FF7C9B4190C37F500347A5D /* CoreGraphics.framework in Frameworks */,
@@ -103,9 +132,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F827E6B192537E200D8D0BA /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				5F9E92D4192645C2008DE3DB /* CorePlot-CocoaTouch.xcodeproj */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		5F9E92D5192645C2008DE3DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F9E92DE192645C2008DE3DB /* libCorePlot-CocoaTouch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5FF7C9A0190C37F400347A5D = {
 			isa = PBXGroup;
 			children = (
+				5F827E6B192537E200D8D0BA /* ThirdParty */,
 				5FF7C9B5190C37F500347A5D /* RaspX */,
 				5FF7C9E1190C37F500347A5D /* RaspXTests */,
 				5FF7C9AE190C37F500347A5D /* Frameworks */,
@@ -125,6 +171,8 @@
 		5FF7C9AE190C37F500347A5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F827E841926229600D8D0BA /* QuartzCore.framework */,
+				5F827E86192622A000D8D0BA /* Accelerate.framework */,
 				5FF7C9AF190C37F500347A5D /* UIKit.framework */,
 				5FF7C9B1190C37F500347A5D /* Foundation.framework */,
 				5FF7C9B3190C37F500347A5D /* CoreGraphics.framework */,
@@ -157,6 +205,10 @@
 				5F827E661921319300D8D0BA /* SessionState.m */,
 				5F827E681924C3F000D8D0BA /* TemperatureFetcher.h */,
 				5F827E691924C3F000D8D0BA /* TemperatureFetcher.m */,
+				5F9E92E219264626008DE3DB /* HistoryViewController.h */,
+				5F9E92E319264626008DE3DB /* HistoryViewController.m */,
+				5F9E931119265F80008DE3DB /* SettingsViewController.h */,
+				5F9E931219265F80008DE3DB /* SettingsViewController.m */,
 			);
 			path = RaspX;
 			sourceTree = "<group>";
@@ -205,6 +257,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5F9E92E0192645D0008DE3DB /* PBXTargetDependency */,
 			);
 			name = RaspX;
 			productName = RaspX;
@@ -248,6 +301,12 @@
 			mainGroup = 5FF7C9A0190C37F400347A5D;
 			productRefGroup = 5FF7C9AC190C37F500347A5D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5F9E92D5192645C2008DE3DB /* Products */;
+					ProjectRef = 5F9E92D4192645C2008DE3DB /* CorePlot-CocoaTouch.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5FF7C9AA190C37F500347A5D /* RaspX */,
@@ -255,6 +314,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5F9E92DE192645C2008DE3DB /* libCorePlot-CocoaTouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCorePlot-CocoaTouch.a";
+			remoteRef = 5F9E92DD192645C2008DE3DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5FF7C9A9190C37F500347A5D /* Resources */ = {
@@ -310,6 +379,8 @@
 				5F827E6319212F6F00D8D0BA /* CommonUIUtility.m in Sources */,
 				5F827E671921319300D8D0BA /* SessionState.m in Sources */,
 				5F827E6A1924C3F000D8D0BA /* TemperatureFetcher.m in Sources */,
+				5F9E92E419264626008DE3DB /* HistoryViewController.m in Sources */,
+				5F9E931319265F80008DE3DB /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +395,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5F9E92E0192645D0008DE3DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePlot-CocoaTouch";
+			targetProxy = 5F9E92DF192645D0008DE3DB /* PBXContainerItemProxy */;
+		};
 		5FF7C9E0190C37F500347A5D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5FF7C9AA190C37F500347A5D /* RaspX */;
@@ -388,7 +464,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -408,7 +484,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -419,8 +495,20 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RaspX/RaspX-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "ThirdParty/core-plot/framework/**";
 				INFOPLIST_FILE = "RaspX/RaspX-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ThirdParty\"",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -430,8 +518,20 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RaspX/RaspX-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "ThirdParty/core-plot/framework/**";
 				INFOPLIST_FILE = "RaspX/RaspX-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ThirdParty\"",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

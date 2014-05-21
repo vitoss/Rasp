@@ -8,6 +8,8 @@
 
 #import "TemperatureFetcher.h"
 
+#define CRYPTO_KEY 9086229259
+
 @implementation TemperatureFetcher {
     NSString *serverName;
 }
@@ -24,7 +26,29 @@
 
 -(void) getCurrent:(void (^)(double))callbackBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
-        callbackBlock(1.0f);
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/api/temperature", serverName]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request setHTTPMethod:@"GET"];
+        [request setValue:@"1235" forHTTPHeaderField:@"Salt"];
+        [request setValue:@"57b2e61b964e5ccdfd34d687db049885" forHTTPHeaderField:@"Hash"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+        [NSURLConnection sendAsynchronousRequest:request
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response,
+                                                   NSData *data, NSError *connectionError)
+         {
+             if (data.length > 0 && connectionError == nil)
+             {
+                 NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data
+                                                                          options:0
+                                                                            error:NULL];
+                 
+                 double temperature = [[response objectForKey:@"value"] doubleValue];
+                 
+                 callbackBlock(temperature);
+             }
+         }];
     });
 }
 
