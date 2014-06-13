@@ -1114,12 +1114,14 @@ containing a value of this type.
         public static final int activity_from_to=0x7f030017;
         public static final int activity_main=0x7f030018;
         public static final int activity_menu=0x7f030019;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
+        public static final int activity_temperature=0x7f03001a;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
     }
     public static final class menu {
         public static final int from_to=0x7f0c0000;
         public static final int main=0x7f0c0001;
         public static final int menu=0x7f0c0002;
+        public static final int temperature=0x7f0c0003;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1180,6 +1182,7 @@ containing a value of this type.
         public static final int rasp_temperature_with_timestamp=0x7f0a001d;
         public static final int title_activity_from_to=0x7f0a001e;
         public static final int title_activity_menu=0x7f0a0019;
+        public static final int title_activity_temperature=0x7f0a001f;
     }
     public static final class style {
         /** 

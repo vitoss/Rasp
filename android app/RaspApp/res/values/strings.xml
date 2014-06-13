@@ -19,5 +19,6 @@
     <string name="rasp_temperature_from_to">Temperature From - To</string>
     <string name="rasp_temperature_with_timestamp">Temperature with Timestamp</string>
     <string name="title_activity_from_to">FromToActivity</string>
+    <string name="title_activity_temperature">Temperature</string>
 
 </resources>

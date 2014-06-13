@@ -20,7 +20,8 @@
         android:layout_width="fill_parent"
         android:layout_height="54dp"
         android:layout_marginBottom="10dp"
-        android:text="@string/rasp_temperature_current" />
+        android:text="@string/rasp_temperature_current"
+        android:onClick="raspTemperatureOnClick" />
 
     <Button
         android:id="@+id/rasp_temperature_with_timestamp_button"
