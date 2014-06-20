@@ -10,7 +10,10 @@
  *
  *= require_self
  *= require foundation_and_overrides
+ *= require font-awesome
+ *= require header
  *= require layout
+ *= require footer
 
  *= require_tree .
  */

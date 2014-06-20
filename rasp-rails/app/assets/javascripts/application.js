@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require rasp
 //= require_tree .
 
 $(function() {

@@ -1,4 +1,4 @@
-class Init
+class Rasp
   constructor: ->
 
     $.ajaxSetup headers:
@@ -11,7 +11,7 @@ class Init
   getTemperature: ->
 
     $.ajax
-      url: "http://77.255.78.53:8080/api/temperature"
+      url: "http://178.37.157.22:8080/api/temperature"
       # url: "http://uj-rasp.no-ip.org/api/temperature"
       # url: "http://localhost:8080/api/temperature"
       type: "GET"
@@ -22,7 +22,7 @@ class Init
         $('#temperature-value').html(data.value)
         return
     $.ajax
-      url: "http://77.255.78.53:8080/api/temperature/1"
+      url: "http://178.37.157.22:8080/api/temperature/1"
       # url: "http://uj-rasp.no-ip.org/api/temperature/1"
       # url: "http://localhost:8080/api/temperature/1"
       type: "GET"
@@ -37,4 +37,4 @@ class Init
         return
 
 jQuery ->
-  window.init = new Init()
+  window.rasp = new Rasp()

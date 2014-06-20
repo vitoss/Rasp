@@ -1,0 +1,60 @@
+@import "compass/css3";
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 5rem;
+  background-color: rgba(255,255,255,0.9);
+  @include box-shadow(rgba(0,0,0,0.5) 1px 0 5px 1px);
+  z-index: 90;
+
+  a,
+  a:hover,
+  a:focus {
+    color: #000;
+  }
+
+  .menu a {
+    @include inline-block();
+    padding: 2.2rem 0 2rem;
+    border-top: 3px solid transparent;
+
+    &:hover {
+      border-color: red;
+    }
+
+    &:focus {
+      border-color: green;
+    }
+  }
+
+  #logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.15rem;
+    margin: 2rem 0;
+    @include inline-block();
+  }
+
+  ul.menu {
+    list-style-type: none;
+    text-align: right;
+    margin: 0;
+
+    li {
+      @include inline-block();
+      margin-left: 2rem;
+      line-height: 100%;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
