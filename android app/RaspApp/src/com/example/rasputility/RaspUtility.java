@@ -4,14 +4,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
+import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -25,21 +30,32 @@ public class RaspUtility {
 	private String HOST;
 	private String HOST_HEADER = "uj-rasp.no-ip.org";
 	private String API = "/api/temperature";
+	private String TEST_API_URL = "/api/temperature/23";
 	private String TMP_GIVEN_NUMBER_PATTERN = "/%1$s"; // return record of given
 														// number (counting
 														// backwards)
 	private String TMP_TIMESTAMP_PATTERN = "/%1$s/%2$s"; // array of temperature
 															// between specified
 															// timestamp
+	private static RaspUtility instance;
+
+	public static RaspUtility getInstance() {
+		if (instance == null)
+			instance = new RaspUtility();
+		return instance;
+	}
 
 	public enum JsonFields {
 		value, timestamp
 	};
 
-	public RaspUtility(String host){
+	public void setHost(String host) {
 		HOST = host;
 	}
-	
+
+	private RaspUtility() {
+	}
+
 	public TemperatureObject getTemperature() {
 		TemperatureObject[] array = getTemperatureArray(new HashMap<String, String>());
 
@@ -49,9 +65,39 @@ public class RaspUtility {
 	public TemperatureObject[] getTemperatureArray(
 			HashMap<String, String> params) {
 		String url = createUrl(params);
+		if(url.isEmpty()){
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+			Date date = new Date();
+			return new TemperatureObject[]{new TemperatureObject(dateFormat.format(date).toString(), "IN-PROPER DATA")};
+		}
 		InputStream response = getReponse(url);
 		TemperatureObject[] objects = retrieveJsonObjects(response);
 		return objects;
+	}
+
+	/*
+	 * Test if "host" is responding to our API
+	 */
+	public int getTestConnectionResult(String host) {
+		if (host.isEmpty())
+			return 400;
+		String test_url = host + TEST_API_URL;
+		int code = -1;
+		try {
+			code = new TestAsyncHttpGet().execute(test_url).get();
+		} catch (ExecutionException ex1) {
+
+		} catch (InterruptedException ex2) {
+
+		}
+		return code;
+	}
+
+	/*
+	 * Test if currently set HOST is responding to our API
+	 */
+	public int getTestConnectionResult() {
+		return getTestConnectionResult(HOST);
 	}
 
 	private String createUrl(HashMap<String, String> params) {
@@ -59,9 +105,7 @@ public class RaspUtility {
 		if (params.isEmpty()) {
 			URL = HOST + API;
 			return URL;
-		}
-
-		if (params.containsKey(JsonParameters.number.toString())) {
+		} else if (params.containsKey(JsonParameters.number.toString())) {
 			URL = String.format(
 					FULL_URL_PATTERN,
 					HOST,
@@ -69,18 +113,18 @@ public class RaspUtility {
 					String.format(TMP_GIVEN_NUMBER_PATTERN,
 							params.get(JsonParameters.number.toString())));
 			return URL;
+		} else if (params.containsKey(JsonParameters.timestampFrom.toString())) {
+			URL = String.format(FULL_URL_PATTERN, HOST, API, String.format(
+					TMP_TIMESTAMP_PATTERN,
+					params.get(JsonParameters.timestampFrom.toString()),
+					params.get(JsonParameters.timestampTo.toString())));
 		}
-
-		URL = String.format(FULL_URL_PATTERN, HOST, API, String.format(
-				TMP_TIMESTAMP_PATTERN,
-				params.get(JsonParameters.timestampFrom.toString()),
-				params.get(JsonParameters.timestampTo.toString())));
 		return URL;
 	}
 
 	private InputStream getReponse(String url) {
 		try {
-			return new AsyncHttpGet().execute(url).get();
+			return new AsyncHttpGet2().execute(url).get();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -104,7 +148,7 @@ public class RaspUtility {
 		return (TemperatureObject[]) elements.toArray();
 	}
 
-	private class AsyncHttpGet extends AsyncTask<String, Integer, InputStream> {
+	private class AsyncHttpGet2 extends AsyncTask<String, Integer, InputStream> {
 
 		@Override
 		protected InputStream doInBackground(String... arg0) {
@@ -133,5 +177,41 @@ public class RaspUtility {
 		}
 	}
 
-}
+	private class TestAsyncHttpGet extends AsyncTask<String, Integer, Integer> {
 
+		@Override
+		protected Integer doInBackground(String... arg0) {
+			HttpResponse response = null;
+			int code = -1;
+			try {
+				HttpClient client = new DefaultHttpClient();
+				HttpGet request = generateHttpGet();
+				request.setHeader("HOST", HOST_HEADER);
+				request.setHeader("Content-Type", "application/json");
+				request.setHeader("Cache-Control", "no-cache");
+				request.setHeader("Salt", "1235");
+				request.setHeader("Hash", "57b2e61b964e5ccdfd34d687db049885");
+				request.setURI(new URI(arg0[0]));
+				response = client.execute(request);
+				code = response.getStatusLine().getStatusCode();
+			} catch (URISyntaxException e) {
+			} catch (ClientProtocolException e) {
+			} catch (IOException e) {
+			}
+			return code;
+		}
+	}
+
+	/*
+	 * Set Required Headers for establishing connection
+	 */
+	private HttpGet generateHttpGet() {
+		HttpGet request = new HttpGet();
+		request.setHeader("HOST", HOST_HEADER);
+		request.setHeader("Content-Type", "application/json");
+		request.setHeader("Cache-Control", "no-cache");
+		request.setHeader("Salt", "1235");
+		request.setHeader("Hash", "57b2e61b964e5ccdfd34d687db049885");
+		return request;
+	}
+}

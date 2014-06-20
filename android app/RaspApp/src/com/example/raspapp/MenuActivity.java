@@ -44,4 +44,10 @@ public class MenuActivity extends ActionBarActivity {
 		Intent menu = new Intent(ctx, FromToActivity.class);
 		startActivity(menu);
 	}
+	
+	public void raspTemperatureOnClick(View view){
+		Context ctx = this;
+		Intent menu = new Intent(ctx, Temperature.class);
+		startActivity(menu);
+	}
 }

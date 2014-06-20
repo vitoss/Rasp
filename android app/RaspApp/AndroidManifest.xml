@@ -41,6 +41,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.raspapp.MenuActivity" />
         </activity>
+        <activity
+            android:name="com.example.raspapp.Temperature"
+            android:label="@string/title_activity_temperature"
+            android:parentActivityName="com.example.raspapp.MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.raspapp.MenuActivity" />
+        </activity>
     </application>
 
 </manifest>
