@@ -53,6 +53,16 @@
     });
 }
 
+-(void) getHistory:(void (^)(NSMutableArray *))callbackBlock {
+    NSString *data = @"[{\"value\": 22.687, \"timestamp\": \"2014-06-21 08:52:02\"}, { \"value\": 18.687, \"timestamp\": \"2014-06-21 09:52:02\"}]";
+    
+    NSMutableArray *response = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+                                                             options:0
+                                                               error:NULL];
+    
+    callbackBlock(response);
+}
+
 -(NSString *)serverName {
     return serverName;
 }

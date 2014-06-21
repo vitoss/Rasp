@@ -14,5 +14,6 @@
 @property (nonatomic,weak) IBOutlet UITextField *toDateControl;
 
 -(IBAction)goBack:(id)sender;
+-(NSString *) formatDate:(NSDate *)date;
 
 @end

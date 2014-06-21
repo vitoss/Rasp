@@ -9,7 +9,7 @@
 #import "SessionState.h"
 
 @implementation SessionState
-@synthesize connected, serverName;
+@synthesize connected, serverName, fromDate, toDate;
 
 static SessionState *sharedInstance = nil;
 
@@ -17,6 +17,10 @@ static SessionState *sharedInstance = nil;
 + (SessionState *)sharedInstance {
     if (sharedInstance == nil) {
         sharedInstance = [[super allocWithZone:NULL] init];
+        
+        //defaults
+        sharedInstance.fromDate = [[NSDate date] dateByAddingTimeInterval:-24*60*60];
+        sharedInstance.toDate = [NSDate date];
     }
     
     return sharedInstance;

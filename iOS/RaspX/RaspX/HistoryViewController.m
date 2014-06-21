@@ -7,22 +7,18 @@
 //
 
 #import "HistoryViewController.h"
+#import "TemperatureFetcher.h"
+#import "SessionState.h"
 
 @implementation HistoryViewController {
     NSMutableArray *dataForPlot;
     CPTXYGraph *graph;
+    NSDate *refDate;
+    NSTimeInterval oneDay;
+    TemperatureFetcher *fetcher;
 }
 
 @synthesize hostView, toolbar, settingsButton;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -41,13 +37,15 @@
 }
 */
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    SessionState *state = [SessionState sharedInstance];
+    
+    if(fetcher == nil || ![[fetcher serverName] isEqualToString:state.serverName]) {
+        fetcher = [[TemperatureFetcher alloc] initWithServer:[state serverName]];
+    }
 }
-*/
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -91,29 +89,54 @@
 }
 
 #pragma mark - Chart behavior
--(void)initializeData
+-(void)initializeData: (NSMutableArray *)data
 {
-    NSMutableArray *contentArray = [NSMutableArray arrayWithCapacity:100];
+    NSMutableArray *contentArray = [NSMutableArray arrayWithCapacity:[data count]];
+    NSDictionary *firstEntity = [data objectAtIndex:0];
+    NSDate *firstDate = [self parseStringToDate:[firstEntity objectForKey:@"timestamp"]];
     
-//    for ( NSUInteger i = 0; i < 100; i++ ) {
-//        NSNumber *x = [NSNumber numberWithDouble:i * 0.05];
-//        NSNumber *y = [NSNumber numberWithDouble:10.0 * rand() / (double)RAND_MAX - 5.0];
-//        [contentArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
-//    }
+    refDate = firstDate;
     
-    NSDate *date1 = [NSDate date];
-    [contentArray addObject:
-     [NSMutableDictionary dictionaryWithObjectsAndKeys:date1, @"x", 1.00f, @"y", nil]];
+    NSUInteger i;
+    for ( i = 0; i < [data count]; i++ ) {
+        NSDictionary *entity = [data objectAtIndex:i];
+        NSTimeInterval x = oneDay*i;
+        id y = [NSNumber numberWithDouble:[[entity objectForKey:@"value"] doubleValue]];
+        [contentArray addObject:
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          [NSDecimalNumber numberWithFloat:x], @"x", 
+          y, @"y", 
+          nil]];
+    }
     
     dataForPlot = contentArray;
 }
 
+-(NSDate *) parseStringToDate: (NSString *) dateString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // this is imporant - we set our input date format to match our input string
+    // if format doesn't match you'll get nil from your string, so be careful
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *dateFromString = [[NSDate alloc] init];
+    // voila!
+    dateFromString = [dateFormatter dateFromString:dateString];
+    
+    return dateFromString;
+}
+
 -(void)initPlot {
-    [self initializeData];
-    [self configureHost];
-    [self setupGraph];
-    [self setupAxes];
-    [self setupScatterPlots];
+    //global const
+    oneDay = 24 * 60 * 60;
+    
+    [fetcher getHistory:^(NSMutableArray *data) {
+        [self initializeData:data];
+        [self configureHost];
+        [self setupGraph];
+        [self setupAxes];
+        [self setupScatterPlots];
+    }];
+    
+    
 //    [self configureLegend];
 }
 
@@ -196,23 +219,34 @@
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
     CPTXYAxis *x          = axisSet.xAxis;
     x.labelingPolicy              = CPTAxisLabelingPolicyAutomatic;
-    x.minorTicksPerInterval       = 7;
+    x.majorIntervalLength = CPTDecimalFromFloat(oneDay);
+    x.minorTicksPerInterval       = 0;
     x.preferredNumberOfMajorTicks = 5;
     x.majorGridLineStyle          = majorGridLineStyle;
     x.minorGridLineStyle          = minorGridLineStyle;
     x.title                       = @"Date";
     x.titleOffset                 = 30.0;
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"1");
     
     // Label y with an automatic label policy.
     CPTXYAxis *y = axisSet.yAxis;
     y.labelingPolicy              = CPTAxisLabelingPolicyAutomatic;
-    y.minorTicksPerInterval       = 10;
-    y.preferredNumberOfMajorTicks = 8;
+//    y.minorTicksPerInterval       = 5;
+//    y.majorIntervalLength         = CPTDecimalFromInt(50);
+    y.majorTickLength             = 10.0;
+    y.preferredNumberOfMajorTicks = 10;
     y.majorGridLineStyle          = majorGridLineStyle;
     y.minorGridLineStyle          = minorGridLineStyle;
-    y.labelOffset                 = 10.0;
+    y.labelOffset                 = -45.0;
     y.title                       = @"Temperature";
-    y.titleOffset                 = 30.0;
+    y.titleOffset                 = -60.0;
+    
+    // added for date
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = kCFDateFormatterShortStyle;
+    CPTTimeFormatter *timeFormatter = [[CPTTimeFormatter alloc] initWithDateFormatter:dateFormatter];
+    timeFormatter.referenceDate = refDate;
+    axisSet.xAxis.labelFormatter = timeFormatter;
 }
 
 -(void)setupScatterPlots
@@ -241,15 +275,15 @@
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     [plotSpace scaleToFitPlots:[NSArray arrayWithObject:dataSourceLinePlot]];
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-    [xRange expandRangeByFactor:CPTDecimalFromDouble(0.75)];
+    [xRange expandRangeByFactor:CPTDecimalFromDouble(5.00)];
     plotSpace.xRange = xRange;
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [yRange expandRangeByFactor:CPTDecimalFromDouble(0.75)];
+    [yRange expandRangeByFactor:CPTDecimalFromDouble(30.0)];
     plotSpace.yRange = yRange;
     
-    CPTPlotRange *globalXRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-1.0) length:CPTDecimalFromDouble(10.0)];
+    CPTPlotRange *globalXRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0.0) length:CPTDecimalFromDouble(oneDay*5)];
     plotSpace.globalXRange = globalXRange;
-    CPTPlotRange *globalYRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-5.0) length:CPTDecimalFromDouble(10.0)];
+    CPTPlotRange *globalYRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-5.0) length:CPTDecimalFromDouble(30.0)];
     plotSpace.globalYRange = globalYRange;
 }
 
