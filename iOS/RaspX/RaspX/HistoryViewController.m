@@ -95,11 +95,15 @@
 {
     NSMutableArray *contentArray = [NSMutableArray arrayWithCapacity:100];
     
-    for ( NSUInteger i = 0; i < 100; i++ ) {
-        NSNumber *x = [NSNumber numberWithDouble:i * 0.05];
-        NSNumber *y = [NSNumber numberWithDouble:10.0 * rand() / (double)RAND_MAX - 5.0];
-        [contentArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
-    }
+//    for ( NSUInteger i = 0; i < 100; i++ ) {
+//        NSNumber *x = [NSNumber numberWithDouble:i * 0.05];
+//        NSNumber *y = [NSNumber numberWithDouble:10.0 * rand() / (double)RAND_MAX - 5.0];
+//        [contentArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
+//    }
+    
+    NSDate *date1 = [NSDate date];
+    [contentArray addObject:
+     [NSMutableDictionary dictionaryWithObjectsAndKeys:date1, @"x", 1.00f, @"y", nil]];
     
     dataForPlot = contentArray;
 }
