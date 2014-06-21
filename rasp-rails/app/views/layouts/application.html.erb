@@ -8,17 +8,21 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Rasp Rails" %></title>
 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body class="<%= "#{controller_name} #{action_name} bg#{1+rand(4)}" %>">
+    <%= render "partials/header" %>
     <div class="row">
       <div id="main-container" class="small-12 columns">
         <%= yield %>
       </div>
     </div>
+    <%= render "partials/footer" %>
     <%= javascript_include_tag "application" %>
   </body>
 
