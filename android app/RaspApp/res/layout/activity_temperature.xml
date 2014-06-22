@@ -1,8 +1,33 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.raspapp.Temperature"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame" >
 
+    <TextView
+        android:id="@+id/rasp_temperature_label"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="@string/rasp_temperature_current"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/rasp_temperature"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:text="@string/rasp_text_could_not_connect"
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/rasp_refresh_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rasp_refresh"
+        android:onClick="refreshTemperature" />
+
+</LinearLayout>

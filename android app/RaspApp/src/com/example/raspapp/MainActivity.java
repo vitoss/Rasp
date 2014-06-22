@@ -1,7 +1,7 @@
 package com.example.raspapp;
 
-
 import com.example.rasputility.RaspUtility;
+
 import android.support.v7.app.ActionBarActivity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
@@ -26,7 +27,6 @@ public class MainActivity extends ActionBarActivity {
 	private String address = "http://uj-rasp.no-ip.org";
 	private boolean menuButtonActive = false;
 	private String statusLabel;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,8 +57,11 @@ public class MainActivity extends ActionBarActivity {
 	private void LoadPreferences() {
 		SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
 
-		address = sharedPreferences.getString(ADDRESS, getResources()
-				.getString(R.string.rasp_address_default));
+		if (!sharedPreferences.getString(ADDRESS,
+				getResources().getString(R.string.rasp_address_default))
+				.isEmpty())
+			address = sharedPreferences.getString(ADDRESS, getResources()
+					.getString(R.string.rasp_address_default));
 
 		statusLabel = sharedPreferences.getString(STATUS_LABEL, getResources()
 				.getString(R.string.rasp_connect_status_result));
@@ -68,12 +71,12 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	private void InitContent() {
-		EditText url = (EditText) findViewById(R.id.rasp_address);
-		url.setText(address, TextView.BufferType.EDITABLE);
-		TextView statusLabelTxt = (TextView) findViewById(R.id.rasp_connect_status_result);
-		statusLabelTxt.setText(statusLabel);
-		Button menuButton = (Button) findViewById(R.id.rasp_button_goto_menu);
-		menuButton.setEnabled(menuButtonActive);
+		 EditText url = (EditText) findViewById(R.id.rasp_address);
+		 url.setText(address, TextView.BufferType.EDITABLE);
+		 TextView statusLabelTxt = (TextView) findViewById(R.id.rasp_connect_status_result);
+		 statusLabelTxt.setText(statusLabel);
+		 Button menuButton = (Button) findViewById(R.id.rasp_button_goto_menu);
+		 menuButton.setEnabled(menuButtonActive);
 	}
 
 	@Override
@@ -103,21 +106,24 @@ public class MainActivity extends ActionBarActivity {
 		EditText url = (EditText) findViewById(R.id.rasp_address);
 		TextView res = (TextView) findViewById(R.id.rasp_connect_status_result);
 		Button menu = (Button) findViewById(R.id.rasp_button_goto_menu);
-		String url_string = url.getText().toString();	
+		String url_string = url.getText().toString();
 		boolean result = false;
 		int code = -1;
 		if (!url_string.isEmpty()) {
-				code = RaspUtility.getInstance().getTestConnectionResult(url_string);
-				if (code == 200)
-					result = true;
+			code = RaspUtility.getInstance()
+				.getTestConnectionResult(url_string); //for debug comment
+			code = 200; // for debug uncomment
+			if (code == 200)
+				result = true;
 		}
-		result = true;// for debug uncomment
-		menu.setEnabled(result); 
+		//result = true;
+		menu.setEnabled(result);
 		menuButtonActive = result;
 		if (result) {
 			address = url_string;
-			statusLabel = String.valueOf(code); 
-			//statusLabel = "SUCCESS";
+			statusLabel = String.valueOf(code);
+			RaspUtility.getInstance().setHost(address);
+			statusLabel = "SUCCESS";
 			res.setText(statusLabel);
 		} else {
 			address = "";
@@ -131,7 +137,7 @@ public class MainActivity extends ActionBarActivity {
 		Intent menu = new Intent(ctx, MenuActivity.class);
 		startActivity(menu);
 	}
-	
+
 	private void haveNetworkConnection() {
 		boolean haveConnectedWifi = false;
 		boolean haveConnectedMobile = false;
