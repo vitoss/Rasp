@@ -9,6 +9,9 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var crypto = require('crypto');
 
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('database.db');
+
 var CRYPTO_KEY = '9086229259';
 
 var allowCrossDomain = function(req, res, next) {
@@ -30,6 +33,7 @@ var checkHash = function(req, res) {
         res.send(401);
     }
 }
+
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -61,14 +65,37 @@ router.route('/temperature')
     // get latest record of temperature (accessed at GET http://localhost:8080/api/temperature)
     .get(function(req, res) {
         checkHash(req, res);
-        res.json({value: "23"}); //TODO here paste some logic
+	var startDate = req.header('Start-Date');
+	var endDate = req.header('End-Date');
+
+	if(startDate && endDate) {
+		var jsonResult = '[';	
+		db.each("select temperature, timestamp from temperature where timestamp between '"+startDate+"' and '"+endDate+"' order by timestamp", function(err,row) {
+			jsonResult += '{ value: '+row.temperature +', timestamp: '+ row.timestamp+'},'; 
+		},function(err,row) {
+			jsonResult = jsonResult.substring(0,jsonResult.length-1);
+			jsonResult +=']';
+			res.json(jsonResult);
+		});
+
+		//console.log(jsonResult);
+		//res.json(jsonResult);
+	} else {
+	db.each("select temperature, timestamp from temperature order by timestamp desc limit 1", function (err, row) {
+	   res.json({value: row.temperature, timestamp:row.timestamp});
+	});
+	}
+       // res.json({value: "23"}); //TODO here paste some logic
     });
 
 router.route('/temperature/:back_record_number')
     // get latest record of temperature (accessed at GET http://localhost:8080/api/temperature/2)
     .get(function(req, res) {
         checkHash(req, res);
-        res.json({value:18, timestamp: (new Date()).getTime()}); //TODO here paste some logic
+	db.each("select temperature, timestamp from temperature order by timestamp desc limit "+ req.params.back_record_number+",1", function(err,row) {
+	  res.json({value: row.temperature, timestamp: row.timestamp});
+	});
+       // res.json({value:18, timestamp: (new Date()).getTime()}); //TODO here paste some logic
     });
 // more routes for our API will happen here
 

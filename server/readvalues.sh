@@ -1,5 +1,3 @@
 #!/bin/bash
-
-TEMP=$(cat $1 | grep t= | awk 'NF>1{print $NF}' | sed -r 's/t=//g')
-TIME=$(date +%s)
-mongo mydb --eval "db.testData.insert({\"value\":\"$TEMP\", \"timestamp\": \"$TIME\", \"sensor\": \"$1\"})"
+TEMP=$(cat /sys/bus/w1/devices/$1/w1_slave | grep t= | awk 'NF>1{print $NF}' | sed -r 's/t=//g')
+/usr/bin/sqlite3 /home/pi/Rasp/Rasp/server/database.db 'insert into temperature (temperature) values ('$TEMP'*1.0/1000);'
