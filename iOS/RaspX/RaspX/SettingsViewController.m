@@ -46,11 +46,13 @@
     UIDatePicker *datePicker = [[UIDatePicker alloc] init];
     [datePicker setDate:[NSDate date]];
     [datePicker addTarget:self action:@selector(updateFromDate:) forControlEvents:UIControlEventValueChanged];       
+    datePicker.timeZone = [NSTimeZone localTimeZone];
     [self.fromDateControl setInputView:datePicker];
     
     UIDatePicker *datePicker2 = [[UIDatePicker alloc] init];
     [datePicker2 setDate:[NSDate date]];
-    [datePicker2 addTarget:self action:@selector(updateToDate:) forControlEvents:UIControlEventValueChanged];       
+    [datePicker2 addTarget:self action:@selector(updateToDate:) forControlEvents:UIControlEventValueChanged];  
+    datePicker2.timeZone = [NSTimeZone localTimeZone];
     [self.toDateControl setInputView:datePicker2];
     
     [self.fromDateControl addTarget:self action:@selector(dismissPicker:) forControlEvents:UIControlEventTouchUpOutside];
@@ -117,9 +119,10 @@
 }
 
 -(NSString *) formatDate:(NSDate *)date {
-    NSString *defaultDate = [NSString stringWithFormat:@"%@", date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
-    return [defaultDate substringToIndex:[defaultDate rangeOfString:@"+"].location];
+    return [dateFormat stringFromDate:date];
 }
 
 @end
