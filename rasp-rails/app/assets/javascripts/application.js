@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require foundation-datepicker
+//= require jquery.jqplot
+//= require jqplot.dateAxisRenderer
 //= require rasp
 //= require_tree .
 

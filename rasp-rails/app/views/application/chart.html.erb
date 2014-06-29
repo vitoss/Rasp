@@ -1,0 +1,11 @@
+<h1>Dane historyczne</h1>
+
+<div class="panel">
+  <form>
+  <input type="text" class="span2" value="<%= Date.yesterday.strftime("%d-%m-%Y") %>" data-date-format="dd-mm-yy" id="datepicker-from">
+  <input type="text" class="span2" value="<%= Date.today.strftime("%d-%m-%Y") %>" data-date-format="dd-mm-yy" id="datepicker-to">
+  <%= link_to "Pokaż dane", "javascript:void(0);", id: "draw-chart" %>
+  </form>
+</div>
+
+<div id="chart"></div>

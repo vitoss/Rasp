@@ -5,4 +5,12 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def recent
+
+  end
+
+  def chart
+
+  end
+
 end
