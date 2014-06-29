@@ -65,25 +65,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
+         timestampString = "425733720.591311"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "307"
-         endingLineNumber = "307"
-         landmarkName = "-setupScatterPlots"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
          landmarkName = "-initializeData:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -121,11 +107,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/SettingsViewController.m"
-         timestampString = "425723685.545836"
+         timestampString = "425733357.576693"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -163,11 +149,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
+         timestampString = "425733720.591311"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "112"
-         endingLineNumber = "112"
+         startingLineNumber = "115"
+         endingLineNumber = "115"
          landmarkName = "-initializeData:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,35 +163,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "110"
-         endingLineNumber = "110"
-         landmarkName = "-initializeData:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
-         landmarkName = "-parseStringToDate:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
+         timestampString = "425733720.591311"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "113"
@@ -219,11 +177,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
+         timestampString = "425733720.591311"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "140"
-         endingLineNumber = "140"
+         startingLineNumber = "135"
+         endingLineNumber = "135"
          landmarkName = "-parseStringToDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -233,11 +191,39 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
+         timestampString = "425733720.591311"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "118"
-         endingLineNumber = "118"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
+         landmarkName = "-initializeData:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RaspX/HistoryViewController.m"
+         timestampString = "425733720.591311"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
+         landmarkName = "-parseStringToDate:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RaspX/HistoryViewController.m"
+         timestampString = "425733720.591311"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "121"
+         endingLineNumber = "121"
          landmarkName = "-initializeData:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -247,11 +233,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/SettingsViewController.m"
-         timestampString = "425724319.633195"
+         timestampString = "425733357.576693"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
          landmarkName = "-goBack:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -261,11 +247,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/SettingsViewController.m"
-         timestampString = "425724065.561657"
+         timestampString = "425733357.576693"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
+         startingLineNumber = "68"
+         endingLineNumber = "68"
          landmarkName = "-dismissPicker:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -289,26 +275,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
+         timestampString = "425733720.591311"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
          landmarkName = "-initPlot"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "311"
-         endingLineNumber = "311"
-         landmarkName = "-setupScatterPlots"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -345,11 +317,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/HistoryViewController.m"
-         timestampString = "425726707.790469"
+         timestampString = "425733720.591311"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "176"
-         endingLineNumber = "176"
+         startingLineNumber = "179"
+         endingLineNumber = "179"
          landmarkName = "-configureHost"
          landmarkType = "5">
       </FileBreakpoint>
@@ -359,12 +331,54 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RaspX/TemperatureFetcher.m"
-         timestampString = "425726707.790469"
+         timestampString = "425733219.462402"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "107"
-         endingLineNumber = "107"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
          landmarkName = "-getHistory:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RaspX/TemperatureFetcher.m"
+         timestampString = "425733219.462402"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "73"
+         endingLineNumber = "73"
+         landmarkName = "-getHistory:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RaspX/TemperatureFetcher.m"
+         timestampString = "425733219.462402"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "76"
+         endingLineNumber = "76"
+         landmarkName = "-getHistory:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RaspX/HistoryViewController.m"
+         timestampString = "425735228.197839"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "131"
+         endingLineNumber = "131"
+         landmarkName = "-initializeData:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -80,11 +80,12 @@
          {
              if (data.length > 0 && connectionError == nil)
              {
+                 NSError *error = nil;
                  NSMutableArray *response = [NSJSONSerialization JSONObjectWithData:data
                                                                           options:0
-                                                                            error:NULL];
+                                                                            error:&error];
                  
-                 callbackBlock(response);
+                callbackBlock(response);
              }
          }];
     });
@@ -107,9 +108,10 @@
 }
 
 -(NSString *) formatDate:(NSDate *)date {
-    NSString *defaultDate = [NSString stringWithFormat:@"%@", date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
-    return [defaultDate substringToIndex:[defaultDate rangeOfString:@"+"].location];
+    return [dateFormat stringFromDate:date];
 }
 
 -(NSString *)serverName {

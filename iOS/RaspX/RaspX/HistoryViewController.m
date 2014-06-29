@@ -107,6 +107,9 @@
 #pragma mark - Chart behavior
 -(void)initializeData: (NSMutableArray *)data
 {
+    if([data count] == 0)
+        return;
+    
     NSMutableArray *contentArray = [NSMutableArray arrayWithCapacity:[data count]];
     NSDictionary *firstEntity = [data objectAtIndex:0];
     NSDate *firstDate = [self parseStringToDate:[firstEntity objectForKey:@"timestamp"]];
@@ -256,7 +259,7 @@
 //    y.minorTicksPerInterval       = 5;
 //    y.majorIntervalLength         = CPTDecimalFromInt(50);
     y.majorTickLength             = 10.0;
-    y.preferredNumberOfMajorTicks = 10;
+    y.preferredNumberOfMajorTicks = 10.0;
     y.majorGridLineStyle          = majorGridLineStyle;
     y.minorGridLineStyle          = minorGridLineStyle;
     y.labelOffset                 = -45.0;
@@ -296,20 +299,20 @@
     // Compress ranges so we can scroll
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     [plotSpace scaleToFitPlots:[NSArray arrayWithObject:dataSourceLinePlot]];
-    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-    [xRange expandRangeByFactor:CPTDecimalFromDouble(5.00)];
-    plotSpace.xRange = xRange;
-    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [yRange expandRangeByFactor:CPTDecimalFromDouble(30.0)];
-    plotSpace.yRange = yRange;
-    
-    int numberOfDays = [self getDateSpan] + 1;
-    CPTPlotRange *globalXRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0.0) length:CPTDecimalFromDouble(oneDay*numberOfDays)];
-    plotSpace.globalXRange = globalXRange;
-    
-    double maxTemperature = [self getMaxTemp];
-    CPTPlotRange *globalYRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-5.0) length:CPTDecimalFromDouble(maxTemperature + 10.0)];
-    plotSpace.globalYRange = globalYRange;
+//    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
+//    [xRange expandRangeByFactor:CPTDecimalFromDouble(5.00)];
+//    plotSpace.xRange = xRange;
+//    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
+//    [yRange expandRangeByFactor:CPTDecimalFromDouble(100.0)];
+//    plotSpace.yRange = yRange;
+//    
+//    int numberOfDays = [self getDateSpan];
+//    CPTPlotRange *globalXRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0.0) length:CPTDecimalFromDouble(oneDay*(numberOfDays+1))];
+//    plotSpace.globalXRange = globalXRange;
+//    
+//    double maxTemperature = [self getMaxTemp];
+//    CPTPlotRange *globalYRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-5.0) length:CPTDecimalFromDouble(maxTemperature + 10.0)];
+//    plotSpace.globalYRange = globalYRange;
 }
 
 -(double)getMaxTemp {
