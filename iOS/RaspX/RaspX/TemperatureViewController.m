@@ -14,7 +14,7 @@
     TemperatureFetcher *fetcher;
 }
 
-@synthesize nonConnectedView, currentTemperatureLabel, refreshButton;
+@synthesize nonConnectedView, currentTemperatureLabel, currentTemperatureDate, refreshButton;
 
 - (void)didReceiveMemoryWarning
 {
@@ -92,8 +92,9 @@
     [refreshButton setEnabled:NO];
     [refreshButton setTitle:@"Loading..." forState:UIControlStateNormal];
     
-    [fetcher getCurrent:^(double temperature) {
+    [fetcher getCurrent:^(double temperature, NSString *date) {
         [currentTemperatureLabel setText:[NSString stringWithFormat:@"%.02f", temperature]];
+        [currentTemperatureDate setText:date];
         
         [refreshButton setEnabled:YES];
         [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];

@@ -13,5 +13,7 @@
 
 @property (nonatomic, assign) BOOL connected;
 @property (nonatomic, retain) NSString *serverName;
+@property (nonatomic, retain) NSDate *fromDate;
+@property (nonatomic, retain) NSDate *toDate;
 
 @end

@@ -11,19 +11,20 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-
-import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import android.app.Activity;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.ProgressBar;
 
 public class RaspUtility {
 	private String FULL_URL_PATTERN = "%1$s%2$s%3$s";
@@ -56,22 +57,44 @@ public class RaspUtility {
 	private RaspUtility() {
 	}
 
-	public TemperatureObject getTemperature() {
-		TemperatureObject[] array = getTemperatureArray(new HashMap<String, String>());
-
-		return array[0];
+	/*
+	 * Return current temperature
+	 */
+	public TemperatureObject getCurrentTemperature() {
+		String url = createUrl(new HashMap<String, String>());
+		TemperatureObject[] arrayCheck = checkURL(url);
+		if (arrayCheck != null) {
+			return arrayCheck[0];
+		}
+		String response = getTemperatureResponse(url);
+		TemperatureObject object = retrieveJsonObject(response);
+		return object;
 	}
 
-	public TemperatureObject[] getTemperatureArray(
-			HashMap<String, String> params) {
+	/*
+	 * Return Historical Temperature
+	 */
+	public TemperatureObject getHistoricalTemperature(int number) {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put(JsonParameters.number.toString(), String.valueOf(number));
 		String url = createUrl(params);
-		if(url.isEmpty()){
-			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-			Date date = new Date();
-			return new TemperatureObject[]{new TemperatureObject(dateFormat.format(date).toString(), "IN-PROPER DATA")};
+		TemperatureObject[] arrayCheck = checkURL(url);
+		if (arrayCheck != null) {
+			return arrayCheck[0];
 		}
-		InputStream response = getReponse(url);
-		TemperatureObject[] objects = retrieveJsonObjects(response);
+		String response = getTemperatureResponse(url);
+		TemperatureObject object = retrieveJsonObject(response);
+		return object;
+	}
+
+	public TemperatureObject[] getTemperatureFromTo(String from, String to) {
+		String url = createUrl(new HashMap<String, String>());
+		TemperatureObject[] arrayCheck = checkURL(url);
+		if (arrayCheck != null) {
+			return arrayCheck;
+		}
+		String response = getHistoricalTemperatureResponse(url, from, to);
+		TemperatureObject[] objects = retrieveJsonArray(response);
 		return objects;
 	}
 
@@ -100,6 +123,17 @@ public class RaspUtility {
 		return getTestConnectionResult(HOST);
 	}
 
+	private TemperatureObject[] checkURL(String url) {
+		if (url.isEmpty()) {
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+			Date date = new Date();
+			return new TemperatureObject[] { new TemperatureObject(dateFormat
+					.format(date).toString(), "IN-PROPER DATA") };
+		}
+
+		return null;
+	}
+
 	private String createUrl(HashMap<String, String> params) {
 		String URL = "";
 		if (params.isEmpty()) {
@@ -122,50 +156,95 @@ public class RaspUtility {
 		return URL;
 	}
 
-	private InputStream getReponse(String url) {
+	private String getTemperatureResponse(String url) {
 		try {
-			return new AsyncHttpGet2().execute(url).get();
+			// return new AsyncHttpGetTemperature().execute(url).get();
+			return "{\"value\":19.75,\"timestamp\":\"2014-06-22 20:06:02\"}";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 
-	private TemperatureObject[] retrieveJsonObjects(InputStream stream) {
-		InputStream is = stream;
-		JsonReader rdr = Json.createReader(is);
-		JsonObject obj = rdr.readObject();
-		JsonArray results = obj.getJsonArray("data");
-		ArrayList<TemperatureObject> elements = new ArrayList<TemperatureObject>();
-		for (JsonObject result : results.getValuesAs(JsonObject.class)) {
-			String value = result.getString(JsonFields.value.toString());
-			String timestamp = result.containsKey(JsonFields.timestamp
-					.toString()) == false ? "" : result
-					.getString(JsonFields.timestamp.toString());
-			elements.add(new TemperatureObject(timestamp, value));
-		}
+	private String getHistoricalTemperatureResponse(String url, String from,
+			String to) {
+		try {
+			// return new AsyncHttpGetTemperatureFromTo().execute(url, from,
+			// to).get();
+			return "[{ value: 22.937, timestamp: \"2014-06-21 09:40:02\"},"
+					+ "{ value: 22.937, timestamp: \"2014-06-21 09:41:02\"},"
+					+ "{ value: 22.812, timestamp: \"2014-06-21 09:42:02\"},"
+					+ "{ value: 22.875, timestamp: \"2014-06-21 09:43:02\"},"
+					+ "{ value: 22.812, timestamp: \"2014-06-21 09:44:02\"},"
+					+ "{ value: 22.812, timestamp: \"2014-06-21 09:45:02\"},"
+					+ "{ value: 22.75, timestamp: \"2014-06-21 09:46:02\"},"
+					+ "{ value: 22.812, timestamp: \"2014-06-21 09:47:02\"},"
+					+ "{ value: 22.812, timestamp: \"2014-06-21 09:48:02\"},"
+					+ "{ value: 22.812, timestamp: \"2014-06-21 09:49:02\"},"
+					+ "{ value: 22.75, timestamp: \"2014-06-21 09:50:02\"},"
+					+ "{ value: 22.625, timestamp: \"2014-06-21 09:51:02\"},"
+					+ "{ value: 22.687, timestamp: \"2014-06-21 09:52:02\"},"
+					+ "{ value: 22.625, timestamp: \"2014-06-21 09:53:02\"},"
+					+ "{ value: 22.562, timestamp: \"2014-06-21 09:54:02\"},"
+					+ "{ value: 22.562, timestamp: \"2014-06-21 09:55:02\"},"
+					+ "{ value: 22.562, timestamp: \"2014-06-21 09:56:02\"},"
+					+ "{ value: 22.562, timestamp: \"2014-06-21 09:57:02\"},"
+					+ "{ value: 22.375, timestamp: \"2014-06-21 09:58:02\"},"
+					+ "{ value: 22.312, timestamp: \"2014-06-21 09:59:02\"}]";
 
-		return (TemperatureObject[]) elements.toArray();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	private class AsyncHttpGet2 extends AsyncTask<String, Integer, InputStream> {
+	private TemperatureObject retrieveJsonObject(String stream) {
+		JSONObject jsonObj = null;
+		TemperatureObject element = null;
+		try {
+			jsonObj = new JSONObject(stream);
+			String value = jsonObj.getString(JsonFields.value.toString());
+			String timestamp = jsonObj.getString(JsonFields.timestamp
+					.toString());
+			element = new TemperatureObject(timestamp, value);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return element;
+	}
 
+	private TemperatureObject[] retrieveJsonArray(String stream) {
+		TemperatureObject[] element = null;
+		JSONArray values = null;
+		try {
+			values = new JSONArray(stream);
+			element = new TemperatureObject[values.length()];
+			for (int i = 0; i < values.length(); i++) {
+				JSONObject obj = values.getJSONObject(i);
+				String value = obj.getString(JsonFields.value.toString());
+				String timestamp = obj.getString(JsonFields.timestamp
+						.toString());
+				TemperatureObject tmp = new TemperatureObject(timestamp, value);
+				element[i] = tmp;
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return element;
+	}
+
+	private class AsyncHttpGetTemperature extends
+			AsyncTask<String, Integer, String> {
 		@Override
-		protected InputStream doInBackground(String... arg0) {
+		protected String doInBackground(String... arg0) {
 			HttpResponse response = null;
-			InputStream inputStr = null;
+			String output = "";
 			try {
 				HttpClient client = new DefaultHttpClient();
-				HttpGet request = new HttpGet();
-				request.setHeader("HOST", HOST_HEADER);
-				request.setHeader("Content-Type", "application/json");
-				request.setHeader("Cache-Control", "no-cache");
-				request.setHeader("Salt", "1235");
-				request.setHeader("Hash", "57b2e61b964e5ccdfd34d687db049885");
+				HttpGet request = generateHttpGet();
 				request.setURI(new URI(arg0[0]));
 				response = client.execute(request);
-				inputStr = (response.getEntity() == null ? null : response
-						.getEntity().getContent());
+				return output = EntityUtils.toString(response.getEntity());
 			} catch (URISyntaxException e) {
 				e.printStackTrace();
 			} catch (ClientProtocolException e) {
@@ -173,12 +252,36 @@ public class RaspUtility {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return inputStr;
+			return output;
+		}
+	}
+
+	private class AsyncHttpGetTemperatureFromTo extends
+			AsyncTask<String, Integer, String> {
+		@Override
+		protected String doInBackground(String... arg0) {
+			HttpResponse response = null;
+			String output = "";
+			try {
+				HttpClient client = new DefaultHttpClient();
+				HttpGet request = generateHttpGet();
+				request.setHeader("Start-Date", arg0[1]);
+				request.setHeader("End-Date", arg0[2]);
+				request.setURI(new URI(arg0[0]));
+				response = client.execute(request);
+				return output = EntityUtils.toString(response.getEntity());
+			} catch (URISyntaxException e) {
+				e.printStackTrace();
+			} catch (ClientProtocolException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return output;
 		}
 	}
 
 	private class TestAsyncHttpGet extends AsyncTask<String, Integer, Integer> {
-
 		@Override
 		protected Integer doInBackground(String... arg0) {
 			HttpResponse response = null;
@@ -186,17 +289,15 @@ public class RaspUtility {
 			try {
 				HttpClient client = new DefaultHttpClient();
 				HttpGet request = generateHttpGet();
-				request.setHeader("HOST", HOST_HEADER);
-				request.setHeader("Content-Type", "application/json");
-				request.setHeader("Cache-Control", "no-cache");
-				request.setHeader("Salt", "1235");
-				request.setHeader("Hash", "57b2e61b964e5ccdfd34d687db049885");
 				request.setURI(new URI(arg0[0]));
 				response = client.execute(request);
 				code = response.getStatusLine().getStatusCode();
 			} catch (URISyntaxException e) {
+				e.printStackTrace();
 			} catch (ClientProtocolException e) {
+				e.printStackTrace();
 			} catch (IOException e) {
+				e.printStackTrace();
 			}
 			return code;
 		}

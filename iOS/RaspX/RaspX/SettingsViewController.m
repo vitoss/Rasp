@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "SessionState.h"
 
 @implementation SettingsViewController
 
@@ -51,6 +52,19 @@
     [datePicker2 setDate:[NSDate date]];
     [datePicker2 addTarget:self action:@selector(updateToDate:) forControlEvents:UIControlEventValueChanged];       
     [self.toDateControl setInputView:datePicker2];
+    
+    [self.fromDateControl addTarget:self action:@selector(dismissPicker:) forControlEvents:UIControlEventTouchUpOutside];
+    
+    [self.toDateControl addTarget:self action:@selector(dismissPicker:) forControlEvents:UIControlEventTouchUpOutside];
+    
+    UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPicker:)];
+    tapGestureRecognize.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:tapGestureRecognize];
+}
+     
+-(void)dismissPicker:(id)sender {
+    [self.fromDateControl resignFirstResponder];
+    [self.toDateControl resignFirstResponder];
 }
 
 - (void)viewDidUnload
@@ -60,6 +74,18 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    SessionState *state = [SessionState sharedInstance];
+    self.fromDateControl.text = [self formatDate:state.fromDate];
+    self.toDateControl.text = [self formatDate:state.toDate];
+
+    UIDatePicker *fromPicker = (UIDatePicker*)self.fromDateControl.inputView;
+    fromPicker.date = state.fromDate;
+    
+    UIDatePicker *toPicker = (UIDatePicker*)self.toDateControl.inputView;
+    toPicker.date = state.toDate;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -67,19 +93,33 @@
 }
 
 -(IBAction)goBack:(id)sender {
+    SessionState *state = [SessionState sharedInstance];
+    
+    UIDatePicker *fromPicker = (UIDatePicker*)self.fromDateControl.inputView;
+    UIDatePicker *toPicker = (UIDatePicker*)self.toDateControl.inputView;
+    
+    [state setFromDate:fromPicker.date];
+    [state setToDate:toPicker.date];
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 
 -(void)updateFromDate:(id)sender
 {
     UIDatePicker *picker = (UIDatePicker*)self.fromDateControl.inputView;
-    self.fromDateControl.text = [NSString stringWithFormat:@"%@",picker.date];
+    self.fromDateControl.text = [self formatDate:picker.date];
 }
 
 -(void)updateToDate:(id)sender
 {
-    UIDatePicker *picker = (UIDatePicker*)self.fromDateControl.inputView;
-    self.fromDateControl.text = [NSString stringWithFormat:@"%@",picker.date];
+    UIDatePicker *picker = (UIDatePicker*)self.toDateControl.inputView;
+    self.toDateControl.text = [self formatDate:picker.date];
+}
+
+-(NSString *) formatDate:(NSDate *)date {
+    NSString *defaultDate = [NSString stringWithFormat:@"%@", date];
+    
+    return [defaultDate substringToIndex:[defaultDate rangeOfString:@"+"].location];
 }
 
 @end

@@ -9,16 +9,29 @@
     <string name="rasp_connect_to">CONNECT TO RASP</string>
     <string name="rasp_address">ADDRESS</string>
     <string name="rasp_address_default">http://uj-rasp.no-ip.org</string>
+    <!--  LOCAL <string name="rasp_address_default">http://192.168.43.136:8080</string> -->
     <string name="rasp_connect_button">CONNECT</string>
     <string name="rasp_connect_status">STATUS</string>
     <string name="rasp_connect_status_result">FAIL</string>
     <string name="rasp_button_goto_menu">Menu</string>
+    <string name="rasp_text_could_not_connect">Could not connect to server</string>
+    <string name="rasp_refresh">Refresh</string>
     <string name="title_activity_menu">Menu</string>
     <string name="menu_text">Menu - what you want to know?</string>
     <string name="rasp_temperature_current">Current Temperature</string>
     <string name="rasp_temperature_from_to">Temperature From - To</string>
-    <string name="rasp_temperature_with_timestamp">Temperature with Timestamp</string>
-    <string name="title_activity_from_to">FromToActivity</string>
-    <string name="title_activity_temperature">Temperature</string>
+    <string name="rasp_temperature_from_date">From Date:</string>
+    <string name="rasp_temperature_to_date">To Date:</string>
+    <string name="rasp_temperature_from_to_go_button">Go</string>
+    <string name="rasp_temperature_go__back_button">Show</string>
+    <string name="rasp_temperature_with_timestamp">Historical Temperature</string>
+    <string name="rasp_temperature_with_timestamp_go_back_label">Last from end date value:</string>
+    <string name="title_activity_from_to">From To </string>
+    <string name="title_activity_temperature">Current Temperature</string>
+    <string name="title_activity_temperature_from_to_menu">Temperature From To</string>
+    <string name="title_activity_temperature_from_to">Temperature From To</string>
+    <string name="title_activity_temperature_historical">Historical Temperature</string>
+    <string name="rasp_temperature_word">Temperature</string>
+    <string name="rasp_date_word">Date:</string>
 
 </resources>
