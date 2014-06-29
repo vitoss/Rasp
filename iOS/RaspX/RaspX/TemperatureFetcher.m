@@ -54,7 +54,7 @@
 }
 
 -(void) getHistory:(void (^)(NSMutableArray *))callbackBlock {
-    NSString *data = @"[{\"value\": 22.687, \"timestamp\": \"2014-06-21 08:52:02\"}, { \"value\": 18.687, \"timestamp\": \"2014-06-21 09:52:02\"}]";
+    NSString *data = @"[{\"value\": 22.687, \"timestamp\": \"2014-06-21 08:52:02\"}, { \"value\": 18.687, \"timestamp\": \"2014-06-21 09:52:02\"},{\"value\": 22.687, \"timestamp\": \"2014-06-22 08:52:02\"}, { \"value\": 18.687, \"timestamp\": \"2014-06-23 09:52:02\"},{\"value\": 22.687, \"timestamp\": \"2014-06-24 08:52:02\"}, { \"value\": 18.687, \"timestamp\": \"2014-06-25 09:52:02\"},{\"value\": 5.687, \"timestamp\": \"2014-06-25 08:52:02\"}, { \"value\": 8.187, \"timestamp\": \"2014-06-25 09:52:02\"},{\"value\": 22.687, \"timestamp\": \"2014-06-25 15:52:02\"}, { \"value\": 30.687, \"timestamp\": \"2014-06-26 09:52:02\"},{\"value\": 22.687, \"timestamp\": \"2014-06-27 08:52:02\"}, { \"value\": 18.687, \"timestamp\": \"2014-06-27 09:52:02\"}]";
     
     NSMutableArray *response = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
                                                              options:0

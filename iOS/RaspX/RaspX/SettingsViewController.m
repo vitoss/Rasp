@@ -52,6 +52,19 @@
     [datePicker2 setDate:[NSDate date]];
     [datePicker2 addTarget:self action:@selector(updateToDate:) forControlEvents:UIControlEventValueChanged];       
     [self.toDateControl setInputView:datePicker2];
+    
+    [self.fromDateControl addTarget:self action:@selector(dismissPicker:) forControlEvents:UIControlEventTouchUpOutside];
+    
+    [self.toDateControl addTarget:self action:@selector(dismissPicker:) forControlEvents:UIControlEventTouchUpOutside];
+    
+    UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPicker:)];
+    tapGestureRecognize.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:tapGestureRecognize];
+}
+     
+-(void)dismissPicker:(id)sender {
+    [self.fromDateControl resignFirstResponder];
+    [self.toDateControl resignFirstResponder];
 }
 
 - (void)viewDidUnload
@@ -80,6 +93,14 @@
 }
 
 -(IBAction)goBack:(id)sender {
+    SessionState *state = [SessionState sharedInstance];
+    
+    UIDatePicker *fromPicker = (UIDatePicker*)self.fromDateControl.inputView;
+    UIDatePicker *toPicker = (UIDatePicker*)self.toDateControl.inputView;
+    
+    [state setFromDate:fromPicker.date];
+    [state setToDate:toPicker.date];
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

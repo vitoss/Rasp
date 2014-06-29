@@ -237,7 +237,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="goBack:" destination="3dv-GY-XlD" eventType="touchUpInside" id="HnG-VG-xhD"/>
+                                    <action selector="goBack:" destination="3dv-GY-XlD" eventType="touchUpInside" id="5Gj-nV-enC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="From date" lineBreakMode="tailTruncation" minimumFontSize="10" id="coq-lW-nhP">
@@ -276,6 +276,46 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="ConnectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConnectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toggleConnection:"/>
+                <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="logControl" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="serverNameControl" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="HistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="RootTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootTabBarController.h"/>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="outlet" name="fromDateControl" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="toDateControl" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TemperatureViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TemperatureViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="action" name="refresh:"/>
+                <relationship kind="outlet" name="currentTemperatureDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentTemperatureLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nonConnectedView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

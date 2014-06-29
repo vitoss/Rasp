@@ -21,7 +21,10 @@
 -(void)setupScatterPlots;
 //-(void)configureLegend;
 -(void)setupAxes;
+-(int)getDateSpan;
+-(double)getMaxTemp;
 
 -(NSDate *) parseStringToDate: (NSString *) dateString;
++ (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
 
 @end

@@ -19,7 +19,7 @@ static SessionState *sharedInstance = nil;
         sharedInstance = [[super allocWithZone:NULL] init];
         
         //defaults
-        sharedInstance.fromDate = [[NSDate date] dateByAddingTimeInterval:-24*60*60];
+        sharedInstance.fromDate = [[NSDate date] dateByAddingTimeInterval:-(24*60*60)*8];
         sharedInstance.toDate = [NSDate date];
     }
     

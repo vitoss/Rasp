@@ -281,10 +281,51 @@
     [yRange expandRangeByFactor:CPTDecimalFromDouble(30.0)];
     plotSpace.yRange = yRange;
     
-    CPTPlotRange *globalXRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0.0) length:CPTDecimalFromDouble(oneDay*5)];
+    int numberOfDays = [self getDateSpan] + 1;
+    CPTPlotRange *globalXRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0.0) length:CPTDecimalFromDouble(oneDay*numberOfDays)];
     plotSpace.globalXRange = globalXRange;
-    CPTPlotRange *globalYRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-5.0) length:CPTDecimalFromDouble(30.0)];
+    
+    double maxTemperature = [self getMaxTemp];
+    CPTPlotRange *globalYRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(-5.0) length:CPTDecimalFromDouble(maxTemperature + 10.0)];
     plotSpace.globalYRange = globalYRange;
+}
+
+-(double)getMaxTemp {
+    double maxTemp = 0.0;
+    
+    for(int i=0; i<dataForPlot.count; i++) {
+        NSDictionary *entity = [dataForPlot objectAtIndex:i];
+        double temp = [[entity objectForKey:@"y"] doubleValue];
+        if(temp > maxTemp) {
+            maxTemp = temp;
+        }
+    }
+    
+    return maxTemp;
+}
+
+-(int)getDateSpan {
+    SessionState *state = [SessionState sharedInstance];
+    
+    return [HistoryViewController daysBetweenDate:[state fromDate] andDate:[state toDate]];
+}
+
++ (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
+{
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&fromDate
+                 interval:NULL forDate:fromDateTime];
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&toDate
+                 interval:NULL forDate:toDateTime];
+    
+    NSDateComponents *difference = [calendar components:NSDayCalendarUnit
+                                               fromDate:fromDate toDate:toDate options:0];
+    
+    return [difference day];
 }
 
 
