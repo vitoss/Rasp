@@ -18,7 +18,7 @@
     TemperatureFetcher *fetcher;
 }
 
-@synthesize hostView, toolbar, settingsButton;
+@synthesize hostView, toolbar, settingsButton, nonConnectedView, loadingLabel;
 
 - (void)didReceiveMemoryWarning
 {
@@ -42,8 +42,24 @@
     
     SessionState *state = [SessionState sharedInstance];
     
-    if(fetcher == nil || ![[fetcher serverName] isEqualToString:state.serverName]) {
-        fetcher = [[TemperatureFetcher alloc] initWithServer:[state serverName]];
+    //toggle view depending on connectivity state
+    if([state connected]) {
+        [nonConnectedView setHidden:YES];
+        
+        //make sure fetcher is good
+        if(fetcher == nil || ![[fetcher serverName] isEqualToString:state.serverName]) {
+            fetcher = [[TemperatureFetcher alloc] initWithServer:[state serverName]];
+        }
+    } else {        
+        //GOOD
+        [nonConnectedView setHidden:NO];
+        
+#if MOCK_MODE == 1
+        if(fetcher == nil || ![[fetcher serverName] isEqualToString:state.serverName]) {
+            fetcher = [[TemperatureFetcher alloc] initWithServer:[state serverName]];
+        }
+        [nonConnectedView setHidden:YES];
+#endif
     }
 }
 
@@ -128,12 +144,18 @@
     //global const
     oneDay = 24 * 60 * 60;
     
+    [[self loadingLabel] setHidden:NO];
+    [[self hostView] setHidden:YES];
+    
     [fetcher getHistory:^(NSMutableArray *data) {
         [self initializeData:data];
         [self configureHost];
         [self setupGraph];
         [self setupAxes];
         [self setupScatterPlots];
+        
+        [[self loadingLabel] setHidden:YES];
+        [[self hostView] setHidden:NO];
     }];
     
     
@@ -328,5 +350,8 @@
     return [difference day];
 }
 
+-(IBAction)goBack:(id)sender {
+    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
+}
 
 @end

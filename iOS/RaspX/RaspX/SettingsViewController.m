@@ -7,7 +7,7 @@
 //
 
 #import "SettingsViewController.h"
-#import "SessionState.h";
+#import "SessionState.h"
 
 @implementation SettingsViewController
 
