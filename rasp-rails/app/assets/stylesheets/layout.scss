@@ -44,6 +44,14 @@ body {
     padding: 2rem 0 5rem;
   }
 
+  #temperature-value {
+    color: darken(#ff0000, 15%);
+  }
+
+  #notice {
+    display: none;
+  }
+
   #chart {
     display: none;
     margin: 0 auto;

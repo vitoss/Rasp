@@ -22,11 +22,11 @@ header {
     border-top: 3px solid transparent;
 
     &:hover {
-      border-color: red;
+      border-color: darken(#ff0000, 25%);
     }
 
     &:focus {
-      border-color: green;
+      border-color: darken(#ff0000, 35%);
     }
   }
 

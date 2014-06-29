@@ -1,11 +1,21 @@
-<h1>Dane historyczne</h1>
+<% if !@from.nil? and !@to.nil?%>
+ <div id="data" class="true" data-from="<%= @from %>" data-to="<%= @to %>"></div>
+<% end %>
 
-<div class="panel">
-  <form>
-  <input type="text" class="span2" value="<%= Date.yesterday.strftime("%d-%m-%Y") %>" data-date-format="dd-mm-yy" id="datepicker-from">
-  <input type="text" class="span2" value="<%= Date.today.strftime("%d-%m-%Y") %>" data-date-format="dd-mm-yy" id="datepicker-to">
-  <%= link_to "Pokaż dane", "javascript:void(0);", id: "draw-chart" %>
-  </form>
+<div class="small-12 columns">
+  <h1>Dane historyczne</h1>
+
+  <div class="panel">
+    <form name="input" action="/chart" method="get">
+      <input type="text" class="span2" value="<%= Date.yesterday.strftime("%Y-%m-%d") %>" data-date-format="yyyy-mm-dd" id="datepicker-from" name="start_date">
+      <input type="text" class="span2" value="<%= Date.today.strftime("%Y-%m-%d") %>" data-date-format="yyyy-mm-dd" id="datepicker-to" name="end_date">
+      <%#= link_to "Pokaż dane", "javascript:void(0);", id: "draw-chart" %>
+      <input type="submit" value="Pokaż dane">
+    </form>
+  </div>
 </div>
 
-<div id="chart"></div>
+<div class="small-12 columns">
+  <div id="notice"></div>
+  <div id="chart"></div>
+</div>
