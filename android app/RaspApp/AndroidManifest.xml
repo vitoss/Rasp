@@ -34,8 +34,32 @@
                 android:value="com.example.raspapp.MainActivity" />
         </activity>
         <activity
-            android:name="com.example.raspapp.FromToActivity"
-            android:label="@string/title_activity_from_to"
+            android:name="com.example.raspapp.Temperature"
+            android:label="@string/title_activity_temperature"
+            android:parentActivityName="com.example.raspapp.MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.raspapp.MenuActivity" />
+        </activity>
+        <activity
+            android:name="com.example.raspapp.TemperatureFromToMenu"
+            android:label="@string/title_activity_temperature_from_to_menu"
+            android:parentActivityName="com.example.raspapp.MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.raspapp.MenuActivity" />
+        </activity>
+        <activity
+            android:name="com.example.raspapp.TemperatureFromTo"
+            android:label="@string/title_activity_temperature_from_to"
+            android:parentActivityName="com.example.raspapp.TemperatureFromToMenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.raspapp.TemperatureFromToMenu" />
+        </activity>
+        <activity
+            android:name="com.example.raspapp.TemperatureHistorical"
+            android:label="@string/title_activity_temperature_historical"
             android:parentActivityName="com.example.raspapp.MenuActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

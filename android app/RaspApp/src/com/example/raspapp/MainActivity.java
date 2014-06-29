@@ -1,15 +1,6 @@
 package com.example.raspapp;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.concurrent.ExecutionException;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import com.example.rasputility.RaspUtility;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.AlertDialog;
@@ -19,13 +10,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
@@ -36,7 +27,6 @@ public class MainActivity extends ActionBarActivity {
 	private String address = "http://uj-rasp.no-ip.org";
 	private boolean menuButtonActive = false;
 	private String statusLabel;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,8 +57,11 @@ public class MainActivity extends ActionBarActivity {
 	private void LoadPreferences() {
 		SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
 
-		address = sharedPreferences.getString(ADDRESS, getResources()
-				.getString(R.string.rasp_address_default));
+		if (!sharedPreferences.getString(ADDRESS,
+				getResources().getString(R.string.rasp_address_default))
+				.isEmpty())
+			address = sharedPreferences.getString(ADDRESS, getResources()
+					.getString(R.string.rasp_address_default));
 
 		statusLabel = sharedPreferences.getString(STATUS_LABEL, getResources()
 				.getString(R.string.rasp_connect_status_result));
@@ -78,12 +71,12 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	private void InitContent() {
-		EditText url = (EditText) findViewById(R.id.rasp_address);
-		url.setText(address, TextView.BufferType.EDITABLE);
-		TextView statusLabelTxt = (TextView) findViewById(R.id.rasp_connect_status_result);
-		statusLabelTxt.setText(statusLabel);
-		Button menuButton = (Button) findViewById(R.id.rasp_button_goto_menu);
-		menuButton.setEnabled(menuButtonActive);
+		 EditText url = (EditText) findViewById(R.id.rasp_address);
+		 url.setText(address, TextView.BufferType.EDITABLE);
+		 TextView statusLabelTxt = (TextView) findViewById(R.id.rasp_connect_status_result);
+		 statusLabelTxt.setText(statusLabel);
+		 Button menuButton = (Button) findViewById(R.id.rasp_button_goto_menu);
+		 menuButton.setEnabled(menuButtonActive);
 	}
 
 	@Override
@@ -111,27 +104,25 @@ public class MainActivity extends ActionBarActivity {
 
 	public void raspConnectButtonOnClick(View view) {
 		EditText url = (EditText) findViewById(R.id.rasp_address);
+		TextView res = (TextView) findViewById(R.id.rasp_connect_status_result);
+		Button menu = (Button) findViewById(R.id.rasp_button_goto_menu);
 		String url_string = url.getText().toString();
 		boolean result = false;
 		int code = -1;
 		if (!url_string.isEmpty()) {
-			try {
-				url_string += "/api/temperature/23";
-				code = new AsyncHttpGet().execute(url_string).get();
-				if (code == 200)
-					result = true;
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				e.printStackTrace();
-			}
+			code = RaspUtility.getInstance()
+				.getTestConnectionResult(url_string); //for debug comment
+			code = 200; // for debug uncomment
+			if (code == 200)
+				result = true;
 		}
-		TextView res = (TextView) findViewById(R.id.rasp_connect_status_result);
-		Button menu = (Button) findViewById(R.id.rasp_button_goto_menu);
-		menu.setEnabled(result); // for debug: true
+		//result = true;
+		menu.setEnabled(result);
 		menuButtonActive = result;
 		if (result) {
 			address = url_string;
+			statusLabel = String.valueOf(code);
+			RaspUtility.getInstance().setHost(address);
 			statusLabel = "SUCCESS";
 			res.setText(statusLabel);
 		} else {
@@ -145,34 +136,6 @@ public class MainActivity extends ActionBarActivity {
 		Context ctx = this;
 		Intent menu = new Intent(ctx, MenuActivity.class);
 		startActivity(menu);
-	}
-
-	private class AsyncHttpGet extends AsyncTask<String, Integer, Integer> {
-
-		@Override
-		protected Integer doInBackground(String... arg0) {
-			HttpResponse response = null;
-			int code = -1;
-			try {
-				HttpClient client = new DefaultHttpClient();
-				HttpGet request = new HttpGet();
-				request.setHeader("HOST", "uj-rasp.no-ip.org");
-				request.setHeader("Content-Type", "application/json");
-				request.setHeader("Cache-Control", "no-cache");
-				request.setHeader("Salt", "1235");
-				request.setHeader("Hash", "57b2e61b964e5ccdfd34d687db049885");
-				request.setURI(new URI(arg0[0]));
-				response = client.execute(request);
-				code = response.getStatusLine().getStatusCode();
-			} catch (URISyntaxException e) {
-				// e.printStackTrace();
-			} catch (ClientProtocolException e) {
-				// e.printStackTrace();
-			} catch (IOException e) {
-				// e.printStackTrace();
-			}
-			return code;
-		}
 	}
 
 	private void haveNetworkConnection() {

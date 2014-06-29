@@ -22,4 +22,6 @@
 //-(void)configureLegend;
 -(void)setupAxes;
 
+-(NSDate *) parseStringToDate: (NSString *) dateString;
+
 @end

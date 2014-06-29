@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/rasp_temperature_from_date_label"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0.10"
+        android:text="@string/rasp_temperature_from_date" />
+
+    <EditText
+        android:id="@+id/rasp_temperature_date_from"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="20dp"
+        android:inputType="date" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/rasp_temperature_to_date_label"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.10"
+        android:text="@string/rasp_temperature_to_date" />
+
+    <EditText
+        android:id="@+id/rasp_temperature_to_date"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/rasp_temperature_from_to_get"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginLeft="200dp"
+        android:layout_weight="0.10"
+        android:onClick="raspFromToButtonOnclick"
+        android:text="@string/rasp_temperature_from_to_go_button" />
+
+</LinearLayout>

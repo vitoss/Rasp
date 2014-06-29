@@ -21,7 +21,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="uj-rasp.no-ip.org" borderStyle="roundedRect" placeholder="Address" minimumFontSize="17" id="pW6-Ce-eI8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="192.168.43.136:8080" borderStyle="roundedRect" placeholder="Address" minimumFontSize="17" id="pW6-Ce-eI8">
                                 <rect key="frame" x="26" y="71" width="269" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -101,6 +101,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="6Ai-7s-fjL">
+                                <rect key="frame" x="50" y="244" width="220" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.47282608695652173" green="0.47282608695652173" blue="0.47282608695652173" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view hidden="YES" contentMode="scaleToFill" id="Dce-mQ-AiE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -135,6 +142,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Temparature" image="second" id="6"/>
                     <connections>
+                        <outlet property="currentTemperatureDate" destination="6Ai-7s-fjL" id="TEn-w7-TL8"/>
                         <outlet property="currentTemperatureLabel" destination="zHk-CQ-aLp" id="afi-kd-VK7"/>
                         <outlet property="nonConnectedView" destination="Dce-mQ-AiE" id="Ezd-8l-dt4"/>
                         <outlet property="refreshButton" destination="q9o-wu-hCI" id="tOY-33-037"/>
@@ -268,45 +276,6 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="ConnectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConnectionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="toggleConnection:"/>
-                <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="logControl" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="serverNameControl" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="HistoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="RootTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootTabBarController.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="outlet" name="fromDateControl" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="toDateControl" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="TemperatureViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TemperatureViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="action" name="refresh:"/>
-                <relationship kind="outlet" name="currentTemperatureLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nonConnectedView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="refreshButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

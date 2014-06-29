@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "SessionState.h";
 
 @implementation SettingsViewController
 
@@ -60,6 +61,18 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    SessionState *state = [SessionState sharedInstance];
+    self.fromDateControl.text = [self formatDate:state.fromDate];
+    self.toDateControl.text = [self formatDate:state.toDate];
+
+    UIDatePicker *fromPicker = (UIDatePicker*)self.fromDateControl.inputView;
+    fromPicker.date = state.fromDate;
+    
+    UIDatePicker *toPicker = (UIDatePicker*)self.toDateControl.inputView;
+    toPicker.date = state.toDate;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -73,13 +86,19 @@
 -(void)updateFromDate:(id)sender
 {
     UIDatePicker *picker = (UIDatePicker*)self.fromDateControl.inputView;
-    self.fromDateControl.text = [NSString stringWithFormat:@"%@",picker.date];
+    self.fromDateControl.text = [self formatDate:picker.date];
 }
 
 -(void)updateToDate:(id)sender
 {
-    UIDatePicker *picker = (UIDatePicker*)self.fromDateControl.inputView;
-    self.fromDateControl.text = [NSString stringWithFormat:@"%@",picker.date];
+    UIDatePicker *picker = (UIDatePicker*)self.toDateControl.inputView;
+    self.toDateControl.text = [self formatDate:picker.date];
+}
+
+-(NSString *) formatDate:(NSDate *)date {
+    NSString *defaultDate = [NSString stringWithFormat:@"%@", date];
+    
+    return [defaultDate substringToIndex:[defaultDate rangeOfString:@"+"].location];
 }
 
 @end

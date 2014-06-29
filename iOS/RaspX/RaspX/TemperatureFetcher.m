@@ -24,7 +24,7 @@
     return self;
 }
 
--(void) getCurrent:(void (^)(double))callbackBlock {
+-(void) getCurrent:(void (^)(double, NSString *))callbackBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/api/temperature", serverName]];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -45,11 +45,22 @@
                                                                             error:NULL];
                  
                  double temperature = [[response objectForKey:@"value"] doubleValue];
+                 NSString *date = [NSString stringWithString:[response objectForKey:@"timestamp"]];
                  
-                 callbackBlock(temperature);
+                 callbackBlock(temperature, date);
              }
          }];
     });
+}
+
+-(void) getHistory:(void (^)(NSMutableArray *))callbackBlock {
+    NSString *data = @"[{\"value\": 22.687, \"timestamp\": \"2014-06-21 08:52:02\"}, { \"value\": 18.687, \"timestamp\": \"2014-06-21 09:52:02\"}]";
+    
+    NSMutableArray *response = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+                                                             options:0
+                                                               error:NULL];
+    
+    callbackBlock(response);
 }
 
 -(NSString *)serverName {
